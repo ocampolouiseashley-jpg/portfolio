@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ashley Ocampo · AI &amp; Automation Engineer</title>
-<meta name="description" content="Ashley Ocampo builds AI agents and automations for legal teams first, and for businesses that want to grow without adding headcount.">
-<meta property="og:title" content="Ashley Ocampo · AI &amp; Automation Engineer">
-<meta property="og:description" content="AI agents and automations that read paperwork, so teams review instead of retype.">
+<title>Ashley Ocampo · Full-stack AI Engineer &amp; Designer</title>
+<meta name="description" content="Ashley Ocampo is a full-stack AI engineer and designer who builds AI agents and automations for legal teams first, and for growing businesses.">
+<meta property="og:title" content="Ashley Ocampo · Full-stack AI Engineer &amp; Designer">
+<meta property="og:description" content="AI agents, full-stack apps and automations, built with a designer's eye.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -203,6 +203,54 @@ a { color: inherit; }
   .capabilities li { font-size: 11vw; }
 }
 
+
+/* ---------- Stack: one keyboard, a key per tool ---------- */
+.stack { background: var(--black); color: var(--white); padding: 140px var(--margin); display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: center; overflow: hidden; }
+.stack-text { grid-column: 1 / 5; min-width: 0; }
+.stack-title { margin: 0 0 16px; font-size: var(--step-head); font-stretch: 62%; font-weight: 800; text-transform: uppercase; line-height: 0.9; letter-spacing: -0.01em; }
+.stack-text > p { margin: 0 0 28px; max-width: 36ch; }
+.key-detail { background: #1a1a1a; padding: 20px 22px; min-height: 150px; }
+.key-name { margin: 0 0 6px; font-size: var(--step-lead); font-weight: 600; color: var(--accent); }
+.key-use { margin: 0; }
+.key-legend { margin: 24px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: var(--step-small); }
+.sw { display: inline-block; width: 14px; height: 14px; margin-right: 6px; vertical-align: -2px; background: var(--face); }
+.keyboard-wrap { grid-column: 6 / 13; perspective: 1400px; display: flex; justify-content: center; }
+.keyboard {
+  display: grid; grid-template-columns: repeat(6, clamp(64px, 6.2vw, 96px)); gap: clamp(10px, 1vw, 16px);
+  padding: 22px; background: #161616; border-radius: 22px;
+  transform: rotateX(32deg) rotateZ(-16deg); transform-style: preserve-3d;
+}
+.k-code { --face: #ffffff; --side: #a9a9a9; --label: #000000; }
+.k-infra { --face: #3a3a3a; --side: #0c0c0c; --label: #ffffff; }
+.k-ai { --face: #a7ff9c; --side: #5fbf54; --label: #000000; }
+.k-auto { --face: #ff6831; --side: #b9431a; --label: #000000; }
+.k-design { --face: #c5c5c5; --side: #858585; --label: #000000; }
+.key {
+  aspect-ratio: 1; border: 0; border-radius: 14px; cursor: pointer; position: relative; padding: 0;
+  background: var(--side); color: var(--label);
+  font: 800 clamp(0.95rem, 1.2vw, 1.25rem)/1 var(--font); font-stretch: 62%; text-transform: uppercase; letter-spacing: 0.01em;
+}
+.key .cap { position: absolute; inset: 0 0 9px 0; border-radius: 14px; background: var(--face); display: grid; place-items: center; }
+.key:hover .cap { transform: translateY(-2px); }
+.key:active .cap, .key[aria-pressed="true"] .cap { transform: translateY(7px); }
+.key:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+@media (prefers-reduced-motion: no-preference) {
+  .key .cap { transition: transform 120ms ease-out; }
+  .js .keyboard-wrap[data-reveal] .keyboard { transition: transform 1200ms var(--ease-out); }
+  .js .keyboard-wrap[data-reveal]:not(.is-in) .keyboard { transform: rotateX(48deg) rotateZ(-26deg) translateY(40px); }
+}
+@media (max-width: 1100px) {
+  .stack { grid-template-columns: 1fr; }
+  .stack-text, .keyboard-wrap { grid-column: 1 / -1; }
+  .keyboard-wrap { margin-top: 24px; }
+}
+@media (max-width: 760px) {
+  .stack { padding: 96px var(--margin); }
+  .keyboard { grid-template-columns: repeat(4, 1fr); width: 100%; transform: none; padding: 14px; gap: 10px; }
+  .js .keyboard-wrap[data-reveal]:not(.is-in) .keyboard { transform: none; }
+  .key { font-size: 0.95rem; }
+}
+
 /* ---------- About: two columns, highlighted words ---------- */
 .about { padding: 140px var(--margin) 120px; }
 .about p {
@@ -322,13 +370,13 @@ a { color: inherit; }
     </div>
     <div class="headline-wrap">
       <div class="ink-top">
-        <h1 class="display"><span class="line"><span data-line style="--i:0">Paperwork,</span></span><span class="line"><span data-line style="--i:1">handled.</span></span></h1>
+        <h1 class="display"><span class="line"><span data-line style="--i:0">AI engineer</span></span><span class="line"><span data-line style="--i:1">&amp; designer.</span></span></h1>
       </div>
       <div class="ink-bottom" aria-hidden="true">
-        <div class="display copy"><span class="line"><span data-line data-t="Paperwork," style="--i:0"></span></span><span class="line"><span data-line data-t="handled." style="--i:1"></span></span></div>
+        <div class="display copy"><span class="line"><span data-line data-t="AI engineer" style="--i:0"></span></span><span class="line"><span data-line data-t="&amp; designer." style="--i:1"></span></span></div>
       </div>
     </div>
-    <p class="lede">I'm Ashley Ocampo. I build AI agents and automations for legal teams first, and for businesses that want to grow without adding headcount.</p>
+    <p class="lede">I'm Ashley Ocampo, a full-stack AI engineer with four years in creative work. I build agents, apps and automations for legal teams first, and for businesses that want to grow.</p>
   </div>
   <div class="hero-tail" aria-hidden="true"></div>
 </header>
@@ -464,8 +512,48 @@ a { color: inherit; }
   <a class="btn growth-btn" href="#contact" data-reveal style="--d:4">Tell me what's slowing you down</a>
 </section>
 
+<section class="stack" id="stack" aria-labelledby="stack-title">
+  <div class="stack-text">
+    <h2 class="stack-title" id="stack-title" data-reveal>What I build with</h2>
+    <p data-reveal style="--d:1">Code, AI, automation and design on one keyboard. Press a key to see where I've used it in real work.</p>
+    <div class="key-detail" aria-live="polite" data-reveal style="--d:2">
+      <p class="key-name" id="key-name">Python</p>
+      <p class="key-use" id="key-use">The bank statement reader, the research agent, invoice-checker and packet-builder.</p>
+    </div>
+    <p class="key-legend" data-reveal style="--d:3"><span class="sw k-code"></span>Code <span class="sw k-infra"></span>Infrastructure <span class="sw k-ai"></span>AI <span class="sw k-auto"></span>Automation <span class="sw k-design"></span>Design</p>
+  </div>
+  <div class="keyboard-wrap" data-reveal style="--d:1">
+    <div class="keyboard" data-ui role="group" aria-label="Tools, one key each">
+      <button type="button" class="key k-code" data-name="Python" data-use="The bank statement reader, the research agent, invoice-checker and packet-builder." aria-label="Python"><span class="cap">Py</span></button>
+      <button type="button" class="key k-code" data-name="JavaScript" data-use="The review app&#x27;s front end and the code steps inside n8n workflows." aria-label="JavaScript"><span class="cap">JS</span></button>
+      <button type="button" class="key k-code" data-name="SQL" data-use="SQLite behind the review app: logins, activity log, corrections." aria-label="SQL"><span class="cap">SQL</span></button>
+      <button type="button" class="key k-code" data-name="HTML &amp; CSS" data-use="Every page I ship, this one included." aria-label="HTML &amp; CSS"><span class="cap">HTML</span></button>
+      <button type="button" class="key k-code" data-name="Flask" data-use="The review app&#x27;s backend: uploads, roles, undo and restore." aria-label="Flask"><span class="cap">Flask</span></button>
+      <button type="button" class="key k-code" data-name="Git" data-use="Every project, with my open-source work on GitHub." aria-label="Git"><span class="cap">Git</span></button>
+      <button type="button" class="key k-infra" data-name="Docker" data-use="Every service on my servers runs in a container." aria-label="Docker"><span class="cap">Docker</span></button>
+      <button type="button" class="key k-infra" data-name="Linux" data-use="My own servers: firewall, SSH keys, nightly backups." aria-label="Linux"><span class="cap">Linux</span></button>
+      <button type="button" class="key k-infra" data-name="Automated tests" data-use="About 400 on the review app, run before anything ships." aria-label="Automated tests"><span class="cap">Tests</span></button>
+      <button type="button" class="key k-ai" data-name="OCR" data-use="Reading scanned bank statements and reports, page by page." aria-label="OCR"><span class="cap">OCR</span></button>
+      <button type="button" class="key k-ai" data-name="Claude" data-use="Structured extraction in invoice-checker and the research agent&#x27;s backup model." aria-label="Claude"><span class="cap">Claude</span></button>
+      <button type="button" class="key k-ai" data-name="GPT" data-use="Tested in my model comparison for the research agent." aria-label="GPT"><span class="cap">GPT</span></button>
+      <button type="button" class="key k-ai" data-name="Gemini" data-use="Tested in the same comparison; its tool calls didn&#x27;t fit the agent." aria-label="Gemini"><span class="cap">Gemini</span></button>
+      <button type="button" class="key k-ai" data-name="Kimi" data-use="The research agent&#x27;s first model: 5 of 5 in testing, public data only." aria-label="Kimi"><span class="cap">Kimi</span></button>
+      <button type="button" class="key k-ai" data-name="Claude Code" data-use="My daily pair programmer, checked by tests." aria-label="Claude Code"><span class="cap">CC</span></button>
+      <button type="button" class="key k-auto" data-name="n8n" data-use="The pipelines behind the bank statement reader and the notice builder." aria-label="n8n"><span class="cap">n8n</span></button>
+      <button type="button" class="key k-auto" data-name="GoHighLevel" data-use="CRM automations and AI agents for a real estate and adjudication business." aria-label="GoHighLevel"><span class="cap">GHL</span></button>
+      <button type="button" class="key k-auto" data-name="Zapier" data-use="Connecting the tools a business already uses." aria-label="Zapier"><span class="cap">Zap</span></button>
+      <button type="button" class="key k-auto" data-name="Make" data-use="Multi-step workflows between business apps." aria-label="Make"><span class="cap">Make</span></button>
+      <button type="button" class="key k-auto" data-name="Twilio" data-use="Messages and calls inside automations." aria-label="Twilio"><span class="cap">SMS</span></button>
+      <button type="button" class="key k-auto" data-name="Google Workspace APIs" data-use="Sheets, Drive and Docs in every legal workflow." aria-label="Google Workspace APIs"><span class="cap">G</span></button>
+      <button type="button" class="key k-design" data-name="UI/UX" data-use="Every screen I build, designed to feel familiar on day one." aria-label="UI/UX"><span class="cap">UI/UX</span></button>
+      <button type="button" class="key k-design" data-name="Branding" data-use="Brand identity and campaigns from four years at Admattic." aria-label="Branding"><span class="cap">Brand</span></button>
+      <button type="button" class="key k-design" data-name="Creative direction" data-use="Taking a team from concept to delivery." aria-label="Creative direction"><span class="cap">Art</span></button>
+    </div>
+  </div>
+</section>
+
 <section class="about" id="about" aria-label="About Ashley">
-  <p data-reveal>Ashley Ocampo is an AI and automation engineer in <span class="mark m1">Angeles City, Philippines</span>, working remotely. Before code there were <span class="mark m3">four years of creative direction</span> at an agency, which is why the tools I build feel like the spreadsheets people already trust. My focus is <span class="mark m1">legal work</span>: in 2026 I built four systems for a U.S. law firm, kept them running with about 400 tests and nightly backups, and trained four teams to use them. Since 2025 I have also automated <span class="mark m2">business and growth</span> work for a U.S. real estate and adjudication business in GoHighLevel and n8n. I write <span class="mark m2">Python</span>, Flask, SQL and JavaScript, run my own Linux servers in Docker, and use Claude Code every day, with tests deciding what ships. I like slow, repetitive work best: it is where a small system gives people back the most hours. <a class="mark m1" href="#contact">Tell me what your team retypes every week.</a></p>
+  <p data-reveal>Ashley Ocampo is a <span class="mark m2">full-stack AI engineer</span> and designer in <span class="mark m1">Angeles City, Philippines</span>, working remotely. Before code there were <span class="mark m3">four years of creative direction</span> at an agency, and I still design: it is why the tools I build feel familiar to the people who use them. My focus is <span class="mark m1">legal work</span>: in 2026 I built four systems for a U.S. law firm, kept them running with about 400 tests and nightly backups, and trained four teams to use them. Since 2025 I have also automated <span class="mark m2">business and growth</span> work for a U.S. real estate and adjudication business in GoHighLevel and n8n. I write <span class="mark m2">Python</span>, Flask, SQL and JavaScript, run my own Linux servers in Docker, and use Claude Code every day, with tests deciding what ships. I like slow, repetitive work best: it is where a small system gives people back the most hours. <a class="mark m1" href="#contact">Tell me what your team retypes every week.</a></p>
 </section>
 
 <section class="contact" id="contact" aria-labelledby="contact-title">
@@ -584,6 +672,21 @@ a { color: inherit; }
   if (clip && "IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
     new IntersectionObserver(([e]) => { e.isIntersecting ? clip.play().catch(() => {}) : clip.pause(); }, { threshold: 0.25 }).observe(clip);
   }
+
+
+  // The keyboard: press a key to see where that tool was used.
+  const keys = document.querySelectorAll(".key");
+  const keyName = document.getElementById("key-name");
+  const keyUse = document.getElementById("key-use");
+  keys.forEach((k, i) => {
+    k.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+    k.addEventListener("click", () => {
+      keys.forEach((o) => o.setAttribute("aria-pressed", "false"));
+      k.setAttribute("aria-pressed", "true");
+      keyName.textContent = k.dataset.name;
+      keyUse.textContent = k.dataset.use;
+    });
+  });
 
   // Contact: open the visitor's email app with their note filled in.
   document.getElementById("note-form").addEventListener("submit", (e) => {
