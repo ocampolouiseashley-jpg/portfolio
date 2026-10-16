@@ -220,7 +220,20 @@ a { color: inherit; }
 .wall img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
 .wall figure:hover img { transform: scale(1.04); }
 .wall figcaption { position: absolute; left: 0; bottom: 0; padding: 6px 10px; background: var(--black); color: var(--white); font-size: var(--step-small); }
-.crafts { grid-column: 1 / 13; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 64px; }
+.campaigns { grid-column: 1 / 13; margin-top: 120px; display: grid; gap: 56px; }
+.campaigns-head { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: end; }
+.campaigns-head h3 { grid-column: 1 / 7; margin: 0; font-size: var(--step-head); font-stretch: 62%; font-weight: 800; text-transform: uppercase; line-height: 0.9; letter-spacing: -0.01em; }
+.campaigns-head p { grid-column: 7 / 13; margin: 0; max-width: 52ch; }
+.campaign { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: start; }
+.campaign-text h4 { margin: 0 0 4px; font-size: var(--step-lead); font-weight: 600; }
+.campaign-text .campaign-line { margin: 0 0 10px; font-size: var(--step-lead); color: var(--muted); }
+.campaign-text p { margin: 0; }
+.strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; min-width: 0; }
+.strip figure { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; }
+.strip img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
+.strip figure:hover img { transform: scale(1.04); }
+.strip:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+.crafts { grid-column: 1 / 13; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 120px; }
 .craft { padding: 24px; background: var(--surface); }
 .craft:nth-child(2) { margin-top: 48px; background: var(--accent); }
 .craft:nth-child(3) { margin-top: 96px; }
@@ -234,6 +247,10 @@ a { color: inherit; }
   .craft:nth-child(n) { margin-top: 0; }
 }
 @media (max-width: 760px) {
+  .campaigns { margin-top: 72px; }
+  .campaigns-head, .campaign { grid-template-columns: 1fr; }
+  .campaigns-head h3, .campaigns-head p { grid-column: 1 / -1; }
+  .strip { grid-template-columns: 1fr 1fr; }
   .wall-row, .wall-row.tall, .wall-row.mid { height: auto; display: grid; grid-template-columns: 1fr 1fr; }
   .wall figure { aspect-ratio: 4 / 5; }
   .creative { padding: 96px var(--margin); grid-template-columns: 1fr; }
@@ -562,6 +579,64 @@ a { color: inherit; }
       <figure data-reveal style="--r:0.562; --d:2"><img src="assets/work/amazon-story.jpg" width="562" height="1000" alt="Vertical Amazon story frame of a woman reading in bed." loading="lazy"><figcaption>Amazon story</figcaption></figure>
       <figure data-reveal style="--r:0.800; --d:3"><img src="assets/work/fintech-ad.jpg" width="800" height="1000" alt="Fintech ad comparing saving and investing with a banknote." loading="lazy"><figcaption>Fintech ad</figcaption></figure>
     </div>
+  </div>
+  <div class="campaigns">
+    <div class="campaigns-head" data-reveal>
+      <h3>Concept campaigns</h3>
+      <p>Four complete campaigns for fictional brands: art direction, AI-generated imagery, copy and a landing page for each. The brands are made up; the craft is mine.</p>
+    </div>
+    <article class="campaign" data-reveal style="--d:0">
+      <div class="campaign-text">
+        <h4>Morrow</h4>
+        <p class="campaign-line">A little green time.</p>
+        <p>A matcha collection for a café, from launch post to landing page.</p>
+      </div>
+      <div class="strip" aria-label="Morrow campaign images">
+          <figure><img src="assets/campaigns/morrow-01-launch.jpg" width="720" height="720" alt="Iced matcha latte on a stone ledge in morning light." loading="lazy"></figure>
+          <figure><img src="assets/campaigns/morrow-03-strawberry.jpg" width="720" height="720" alt="Strawberry matcha in a glass with fresh strawberries." loading="lazy"></figure>
+          <figure><img src="assets/campaigns/morrow-05-invitation.jpg" width="720" height="720" alt="Two hands reaching for matcha drinks on a café table." loading="lazy"></figure>
+          <figure><img src="assets/campaigns/morrow-06-landing-mockup.jpg" width="720" height="900" alt="Landing page mockup for the matcha collection." loading="lazy"></figure>
+      </div>
+    </article>
+    <article class="campaign" data-reveal style="--d:1">
+      <div class="campaign-text">
+        <h4>Avelune</h4>
+        <p class="campaign-line">The quiet ritual.</p>
+        <p>A skincare collection told through texture and a daily ritual.</p>
+      </div>
+      <div class="strip" aria-label="Avelune campaign images">
+          <figure><img src="assets/campaigns/avelune-01-launch.jpg" width="720" height="900" alt="A white serum bottle on travertine with draped linen." loading="lazy"></figure>
+          <figure><img src="assets/campaigns/avelune-03-lifestyle.jpg" width="720" height="900" alt="A woman in a robe holding a serum bottle at a marble vanity." loading="lazy"></figure>
+          <figure><img src="assets/campaigns/avelune-05-evening.jpg" width="720" height="900" alt="Skincare bottles on a bathroom counter at dusk." loading="lazy"></figure>
+          <figure><img src="assets/campaigns/avelune-06-landing-mockup.jpg" width="720" height="900" alt="Landing page mockup for the skincare collection." loading="lazy"></figure>
+      </div>
+    </article>
+    <article class="campaign" data-reveal style="--d:2">
+      <div class="campaign-text">
+        <h4>Serein</h4>
+        <p class="campaign-line">Somewhere, slower.</p>
+        <p>A coastal retreat shown through architecture, setting and guest moments.</p>
+      </div>
+      <div class="strip" aria-label="Serein campaign images">
+          <figure><img src="assets/campaigns/serein-01-launch.jpg" width="720" height="900" alt="An infinity pool above the sea at sunset." loading="lazy"></figure>
+          <figure><img src="assets/campaigns/serein-03-lifestyle.jpg" width="720" height="900" alt="Two guests at breakfast on a terrace above the sea." loading="lazy"></figure>
+          <figure><img src="assets/campaigns/serein-05-escape.jpg" width="720" height="900" alt="A woman in white walking a stone path toward the coast." loading="lazy"></figure>
+          <figure><img src="assets/campaigns/serein-06-landing-mockup.jpg" width="720" height="900" alt="Landing page mockup for the coastal retreat." loading="lazy"></figure>
+      </div>
+    </article>
+    <article class="campaign" data-reveal style="--d:0">
+      <div class="campaign-text">
+        <h4>Still House</h4>
+        <p class="campaign-line">Room to live.</p>
+        <p>A furniture and home objects collection, from material to everyday use.</p>
+      </div>
+      <div class="strip" aria-label="Still House campaign images">
+          <figure><img src="assets/campaigns/still-house-01-launch.jpg" width="720" height="900" alt="A warm living room with a curved sofa and a sea view." loading="lazy"></figure>
+          <figure><img src="assets/campaigns/still-house-03-lifestyle.jpg" width="720" height="900" alt="A woman reading on a cream sofa in soft light." loading="lazy"></figure>
+          <figure><img src="assets/campaigns/still-house-05-evening.jpg" width="720" height="900" alt="A living room at sunset with a lit fireplace." loading="lazy"></figure>
+          <figure><img src="assets/campaigns/still-house-06-landing-mockup.jpg" width="720" height="900" alt="Landing page mockup for the home collection." loading="lazy"></figure>
+      </div>
+    </article>
   </div>
   <div class="crafts">
     <div class="craft" data-reveal style="--d:0">
