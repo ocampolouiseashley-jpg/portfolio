@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ashley Ocampo · Full-stack AI Engineer &amp; Designer</title>
-<meta name="description" content="Ashley Ocampo is a full-stack AI engineer and designer who builds AI agents and automations for legal teams first, and for growing businesses.">
-<meta property="og:title" content="Ashley Ocampo · Full-stack AI Engineer &amp; Designer">
-<meta property="og:description" content="AI agents, full-stack apps and automations, built with a designer's eye.">
+<title>Louise Ashley Ocampo · AI Automation Engineer &amp; Designer</title>
+<meta name="description" content="Louise Ashley Ocampo builds intelligent systems, improves business operations and creates digital experiences: AI agents, workflow automation, CRM systems and visual design.">
+<meta property="og:title" content="Louise Ashley Ocampo · AI Automation Engineer &amp; Designer">
+<meta property="og:description" content="AI automation, business systems and creative design.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -102,7 +102,9 @@ a { color: inherit; }
 .work-head { padding-top: 120px !important; }
 .work-head { padding: 0 var(--margin) 40px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 32px; }
 .work-head h2 { font-size: var(--step-head); }
-.work-head p { margin: 0; max-width: 46ch; }
+.work-head .work-intro { max-width: 62ch; }
+.work-intro p { margin: 0 0 12px; }
+.work-intro .focus { font-size: var(--step-small); }
 .folder { position: sticky; top: calc(var(--n) * 64px); min-height: calc(80svh + (3 - var(--n)) * 64px); color: var(--fi); background: var(--fb); }
 .folder-strip { height: 64px; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 var(--margin); }
 .tab {
@@ -187,30 +189,55 @@ a { color: inherit; }
 }
 
 
-/* ---------- Growth: a capability list set large ---------- */
-.growth { background: var(--orange); color: var(--orange-ink); padding: 150px var(--margin) 140px; display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
-.growth-intro { grid-column: 1 / 6; }
-.growth-title { margin: 0 0 20px; font-size: var(--step-lead); font-weight: 600; line-height: 1.2; }
-.growth-intro p { margin: 0; max-width: 40ch; }
-.capabilities { grid-column: 6 / 13; list-style: none; margin: 0; padding: 0; }
-.capabilities li { font-size: var(--step-head); font-stretch: 62%; font-weight: 800; text-transform: uppercase; line-height: 0.95; letter-spacing: -0.01em; padding: 6px 0; text-wrap: balance; }
-.growth-btn { grid-column: 6 / 13; justify-self: start; margin-top: 24px; background: var(--black); color: var(--white); }
+/* ---------- Business systems: four groups beside a sticky intro ---------- */
+.growth { background: var(--orange); color: var(--orange-ink); padding: 150px var(--margin) 140px; display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: start; }
+.growth-intro { grid-column: 1 / 6; position: sticky; top: 32px; }
+.growth-title { margin: 0 0 24px; font-size: var(--step-head); }
+.growth-intro p { margin: 0 0 14px; max-width: 40ch; }
+.growth-intro .growth-note { font-size: var(--step-small); }
+.growth-btn { margin-top: 14px; background: var(--black); color: var(--white); }
 .growth-btn:hover { background: #262626; }
+.cap-groups { grid-column: 7 / 13; display: grid; gap: 56px; }
+.cap-group h3 { margin: 0 0 12px; font-size: var(--step-lead); font-stretch: 62%; font-weight: 800; text-transform: uppercase; line-height: 1; letter-spacing: -0.01em; }
+.cap-group ul { margin: 0; padding-left: 1.1em; }
+.cap-group li { margin-bottom: 6px; }
 @media (max-width: 900px) {
   .growth { grid-template-columns: 1fr; padding: 96px var(--margin); }
-  .growth-intro, .capabilities, .growth-btn { grid-column: 1 / -1; }
-  .capabilities { margin-top: 24px; }
-  .capabilities li { font-size: 11vw; }
+  .growth-intro, .cap-groups { grid-column: 1 / -1; position: static; }
+  .cap-groups { margin-top: 40px; gap: 40px; }
 }
 
+/* ---------- Creative: a large title, then four crafts in a staggered row ---------- */
+.creative { background: var(--white); color: var(--ink); padding: 160px var(--margin) 150px; display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+.creative-title { grid-column: 1 / 13; font-size: var(--step-display); margin: 0 0 24px; line-height: 0.86; }
+.creative-intro { grid-column: 7 / 13; }
+.creative-intro p { margin: 0 0 14px; max-width: 52ch; }
+.crafts { grid-column: 1 / 13; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 64px; }
+.craft { padding: 24px; background: var(--surface); }
+.craft:nth-child(2) { margin-top: 48px; background: var(--accent); }
+.craft:nth-child(3) { margin-top: 96px; }
+.craft:nth-child(4) { margin-top: 144px; background: var(--black); color: var(--white); }
+.craft h3 { margin: 0 0 14px; font-size: var(--step-lead); font-stretch: 62%; font-weight: 800; text-transform: uppercase; line-height: 1; }
+.craft ul { margin: 0; padding-left: 1.1em; }
+.craft li { margin-bottom: 6px; }
+@media (max-width: 1000px) {
+  .creative-intro { grid-column: 1 / -1; }
+  .crafts { grid-template-columns: 1fr 1fr; }
+  .craft:nth-child(n) { margin-top: 0; }
+}
+@media (max-width: 760px) {
+  .creative { padding: 96px var(--margin); grid-template-columns: 1fr; }
+  .creative-title { font-size: 19vw; }
+  .crafts { grid-template-columns: 1fr; margin-top: 32px; }
+}
 
 /* ---------- Stack: one keyboard, a key per tool ---------- */
 .stack { background: var(--black); color: var(--white); padding: 140px var(--margin); display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: center; overflow: hidden; }
 .stack-text { grid-column: 1 / 5; min-width: 0; }
 .stack-title { margin: 0 0 16px; font-size: var(--step-head); font-stretch: 62%; font-weight: 800; text-transform: uppercase; line-height: 0.9; letter-spacing: -0.01em; }
 .stack-text > p { margin: 0 0 28px; max-width: 36ch; }
-.key-detail { background: #1a1a1a; padding: 20px 22px; min-height: 150px; }
-.key-name { margin: 0 0 6px; font-size: var(--step-lead); font-weight: 600; color: var(--accent); }
+.key-detail { min-height: 190px; }
+.key-name { margin: 0 0 10px; font-size: var(--step-head); font-stretch: 62%; font-weight: 800; text-transform: uppercase; line-height: 0.9; letter-spacing: -0.01em; color: var(--accent); }
 .key-use { margin: 0; }
 .key-legend { margin: 24px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: var(--step-small); }
 .sw { display: inline-block; width: 14px; height: 14px; margin-right: 6px; vertical-align: -2px; background: var(--face); }
@@ -269,7 +296,8 @@ a { color: inherit; }
 .contact { padding: 200px var(--margin) 160px; }
 .contact-inner { width: min(520px, 100%); margin-left: calc(100% / 12 * 1); }
 .contact h2 { font-size: var(--step-lead); font-weight: 500; line-height: 1.3; margin: 0; }
-.contact-sub { margin: 4px 0 0; font-size: var(--step-lead); line-height: 1.3; color: var(--muted); }
+.contact-q { margin: 8px 0 0; font-size: var(--step-lead); line-height: 1.3; }
+.contact-sub { margin: 10px 0 0; font-size: var(--step-body); color: var(--muted); }
 .field { position: relative; margin-top: 28px; }
 .field input {
   width: 100%; height: 64px; border: 0; border-radius: 0; background: var(--surface); color: var(--ink);
@@ -359,11 +387,11 @@ a { color: inherit; }
 <header class="hero">
   <div class="hero-screen">
     <div class="bar">
-      <a class="wordmark" href="#top" id="top">Ashley Ocampo</a>
+      <a class="wordmark" href="#top" id="top">Louise Ashley Ocampo</a>
       <nav aria-label="Main">
-        <a class="navlink" href="#work">Work</a>
-        <a class="navlink" href="#try">Try it</a>
-        <a class="navlink" href="#growth">Growth</a>
+        <a class="navlink" href="#work">Legal</a>
+        <a class="navlink" href="#growth">Business</a>
+        <a class="navlink" href="#creative">Creative</a>
         <a class="navlink" href="#about">About</a>
         <a class="btn" href="#contact">Get in touch</a>
       </nav>
@@ -376,7 +404,7 @@ a { color: inherit; }
         <div class="display copy"><span class="line"><span data-line data-t="AI engineer" style="--i:0"></span></span><span class="line"><span data-line data-t="&amp; designer." style="--i:1"></span></span></div>
       </div>
     </div>
-    <p class="lede">I'm Ashley Ocampo, a full-stack AI engineer with four years in creative work. I build agents, apps and automations for legal teams first, and for businesses that want to grow.</p>
+    <p class="lede">I'm Louise Ashley Ocampo. I build intelligent systems, improve business operations and create digital experiences.</p>
   </div>
   <div class="hero-tail" aria-hidden="true"></div>
 </header>
@@ -385,8 +413,12 @@ a { color: inherit; }
 
 <section class="work" id="work" aria-labelledby="work-title">
   <div class="work-head">
-    <h2 class="display" id="work-title" data-reveal>Filed work</h2>
-    <p data-reveal style="--d:1">Legal work comes first: four systems for a U.S. collections law firm. The code belongs to the client, so each folder tells the story; I'm glad to walk through any of them on a call.</p>
+    <h2 class="display" id="work-title" data-reveal>Legal operations</h2>
+    <div class="work-intro" data-reveal style="--d:1">
+      <p>Four systems built for a U.S. collections law firm, designed to reduce repetitive work, improve data handling and support internal operations: document processing, automated research, quality checks and connected workflows that help teams handle complex, repetitive tasks more consistently.</p>
+      <p>The code belongs to the client, so I present these through system overviews instead of proprietary code. I'm happy to walk through the architecture on a call.</p>
+      <p class="focus"><b>Focus areas:</b> document processing and data extraction · research and verification workflows · automated quality checks · Python applications and workflow orchestration · testing, reliability and operational safeguards</p>
+    </div>
   </div>
 
   <article class="folder" style="--n:0; --fb:var(--surface); --fi:var(--ink); --tb:var(--orange); --ti:var(--orange-ink)">
@@ -465,57 +497,67 @@ a { color: inherit; }
   </div>
 </section>
 
-<section class="process" id="process" aria-labelledby="process-title">
-  <div class="process-intro">
-    <h2 class="display" id="process-title" data-reveal>How a file moves</h2>
-    <p data-reveal style="--d:1">What happens to a single bank statement in the reader, and who handles each step. People stay in charge of every decision.</p>
-    <figure class="clip" data-reveal style="--d:2"><video src="assets/teleprinter-automatic-printing.webm" poster="assets/teleprinter-automatic-printing-poster.jpg" muted loop playsinline preload="none" width="854" height="480" aria-label="A 1960s teleprinter typing a message on its own."></video><figcaption>Paperwork that types itself: a teleprinter, 1960s</figcaption></figure>
-  </div>
-  <div class="slip" data-reveal style="--d:2">
-    <p class="slip-title">Bank statement reader</p>
-    <p class="slip-sub">Route of one file</p>
-    <h3>Arrives</h3>
-    <dl>
-      <div class="row"><dt>Uploaded on the review page</dt><span class="dots"></span><dd>Team</dd></div>
-      <div class="row"><dt>Picked up by the pipeline</dt><span class="dots"></span><dd>n8n</dd></div>
-    </dl>
-    <h3>Read</h3>
-    <dl>
-      <div class="row"><dt>Layout matched to the bank</dt><span class="dots"></span><dd>Reader</dd></div>
-      <div class="row"><dt>Money in, line by line</dt><span class="dots"></span><dd>Reader</dd></div>
-    </dl>
-    <h3>Checked</h3>
-    <dl>
-      <div class="row"><dt>Own transfers and card fees skipped</dt><span class="dots"></span><dd>Rules</dd></div>
-      <div class="row"><dt>Past corrections applied</dt><span class="dots"></span><dd>Rules</dd></div>
-    </dl>
-    <h3>Reviewed</h3>
-    <dl>
-      <div class="row"><dt>Each payer approved or fixed</dt><span class="dots"></span><dd>Team</dd></div>
-      <div class="row"><dt>Fixes saved for next week</dt><span class="dots"></span><dd>Log</dd></div>
-    </dl>
-    <div class="total"><span>Approved payers in the tracker</span><span>No retyping</span></div>
-  </div>
-</section>
+
 
 <section class="growth" id="growth" aria-labelledby="growth-title">
   <div class="growth-intro">
-    <h2 class="growth-title" id="growth-title" data-reveal>For growing businesses too</h2>
-    <p data-reveal style="--d:1">Since 2025 I've built GoHighLevel automations and AI agents for a U.S. real estate and adjudication business, connected to the rest of their tools with Python, APIs and n8n. The habits are the same as in the legal work: the cheapest reliable step first, and a person approves what matters.</p>
+    <h2 class="growth-title display" id="growth-title" data-reveal>Business systems</h2>
+    <p data-reveal style="--d:1">Since 2025 I've worked with a U.S. real estate and adjudication business, building GoHighLevel automations, CRM workflows and integrations with Python, APIs and n8n.</p>
+    <p data-reveal style="--d:2">I connect the tools a business already uses, remove unnecessary manual work, and make processes easier to manage as the business grows.</p>
+    <p class="growth-note" data-reveal style="--d:3">These are examples of the systems I can build, not a claim that every capability listed has already been deployed for a client.</p>
+    <a class="btn growth-btn" href="#contact" data-reveal style="--d:4">Tell me what's slowing you down</a>
   </div>
-  <ul class="capabilities">
-    <li data-reveal>CRM pipelines in GoHighLevel</li>
-    <li data-reveal style="--d:1">Workflows across Zapier, Make and n8n</li>
-    <li data-reveal style="--d:2">AI agents with a human check</li>
-    <li data-reveal style="--d:3">Documents that build themselves</li>
-  </ul>
-  <a class="btn growth-btn" href="#contact" data-reveal style="--d:4">Tell me what's slowing you down</a>
+  <div class="cap-groups">
+    <div class="cap-group" data-reveal style="--d:0">
+      <h3>CRM pipelines and lead management</h3>
+      <ul><li>Build pipelines around the actual sales process.</li><li>Organize leads by stage, source, owner and status.</li><li>Automate lead assignment, task creation and internal notifications.</li><li>Identify stalled opportunities and overdue follow-ups.</li><li>Track pipeline activity and conversion points.</li></ul>
+    </div>
+    <div class="cap-group" data-reveal style="--d:1">
+      <h3>GoHighLevel workflows</h3>
+      <ul><li>Automate responses to incoming inquiries.</li><li>Create appointment confirmations and reminders.</li><li>Build follow-up sequences based on customer actions.</li><li>Stop sequences when a lead replies, books or opts out.</li><li>Trigger internal alerts when a person needs to step in.</li></ul>
+    </div>
+    <div class="cap-group" data-reveal style="--d:2">
+      <h3>Integrations and connected systems</h3>
+      <ul><li>Connect GoHighLevel with external applications and APIs.</li><li>Use Python to validate, transform and process data.</li><li>Orchestrate multi-step workflows in n8n.</li><li>Keep databases, forms and spreadsheets in sync.</li><li>Add error handling, retries and notifications.</li></ul>
+    </div>
+    <div class="cap-group" data-reveal style="--d:3">
+      <h3>AI agents with human oversight</h3>
+      <ul><li>Categorize incoming inquiries and summarize conversations.</li><li>Extract information from documents.</li><li>Prepare draft responses for review.</li><li>Flag missing information and unusual cases.</li><li>Route sensitive or uncertain decisions to a person.</li></ul>
+    </div>
+  </div>
 </section>
+
+<section class="creative" id="creative" aria-labelledby="creative-title">
+  <h2 class="display creative-title" id="creative-title" data-reveal>Creative design</h2>
+  <div class="creative-intro" data-reveal style="--d:1">
+    <p>Before focusing on automation and engineering, I worked across creative design, digital content and client-facing projects. That still shapes my technical work: a system should not only function well but also make sense to the people using it.</p>
+    <p>My goal is to make ideas easier to understand, products easier to navigate, and business communication more effective.</p>
+  </div>
+  <div class="crafts">
+    <div class="craft" data-reveal style="--d:0">
+      <h3>Social media and campaign design</h3>
+      <ul><li>Social media carousels and static creatives</li><li>Branded content and campaign assets</li><li>Visual storytelling and content layouts</li></ul>
+    </div>
+    <div class="craft" data-reveal style="--d:1">
+      <h3>Ebooks and lead magnets</h3>
+      <ul><li>Ebook design and editorial layouts</li><li>Lead-generation resources</li><li>Information hierarchy and document design</li></ul>
+    </div>
+    <div class="craft" data-reveal style="--d:2">
+      <h3>UI/UX and digital experiences</h3>
+      <ul><li>User interface design and layouts</li><li>Dashboard and web app concepts</li><li>User flows and usability improvements</li></ul>
+    </div>
+    <div class="craft" data-reveal style="--d:3">
+      <h3>Art direction and AI-assisted content</h3>
+      <ul><li>AI-generated imagery and visual concepts</li><li>Product visuals and advertising creatives</li><li>Motion design and short-form video editing</li><li>Amazon A+ content and digital product presentation</li></ul>
+    </div>
+  </div>
+</section>
+
 
 <section class="stack" id="stack" aria-labelledby="stack-title">
   <div class="stack-text">
     <h2 class="stack-title" id="stack-title" data-reveal>What I build with</h2>
-    <p data-reveal style="--d:1">Code, AI, automation and design on one keyboard. Press a key to see where I've used it in real work.</p>
+    <p data-reveal style="--d:1">Code, AI, automation and design on one keyboard. Press a key.</p>
     <div class="key-detail" aria-live="polite" data-reveal style="--d:2">
       <p class="key-name" id="key-name">Python</p>
       <p class="key-use" id="key-use">The bank statement reader, the research agent, invoice-checker and packet-builder.</p>
@@ -552,17 +594,56 @@ a { color: inherit; }
   </div>
 </section>
 
-<section class="about" id="about" aria-label="About Ashley">
-  <p data-reveal>Ashley Ocampo is a <span class="mark m2">full-stack AI engineer</span> and designer in <span class="mark m1">Angeles City, Philippines</span>, working remotely. Before code there were <span class="mark m3">four years of creative direction</span> at an agency, and I still design: it is why the tools I build feel familiar to the people who use them. My focus is <span class="mark m1">legal work</span>: in 2026 I built four systems for a U.S. law firm, kept them running with about 400 tests and nightly backups, and trained four teams to use them. Since 2025 I have also automated <span class="mark m2">business and growth</span> work for a U.S. real estate and adjudication business in GoHighLevel and n8n. I write <span class="mark m2">Python</span>, Flask, SQL and JavaScript, run my own Linux servers in Docker, and use Claude Code every day, with tests deciding what ships. I like slow, repetitive work best: it is where a small system gives people back the most hours. <a class="mark m1" href="#contact">Tell me what your team retypes every week.</a></p>
+<section class="process" id="process" aria-labelledby="process-title">
+  <div class="process-intro">
+    <h2 class="display" id="process-title" data-reveal>How I approach problems</h2>
+    <p data-reveal style="--d:1">I don't start by asking which tool to use. I start by understanding the problem.</p>
+    <figure class="clip" data-reveal style="--d:2"><video src="assets/teleprinter-automatic-printing.webm" poster="assets/teleprinter-automatic-printing-poster.jpg" muted loop playsinline preload="none" width="854" height="480" aria-label="A 1960s teleprinter typing a message on its own."></video><figcaption>Paperwork that types itself: a teleprinter, 1960s</figcaption></figure>
+  </div>
+  <div class="slip" data-reveal style="--d:2">
+    <p class="slip-title">Every project</p>
+    <p class="slip-sub">From first call to running system</p>
+    <h3>Understand the process</h3>
+    <dl>
+      <div class="row"><dt>Map how work happens today</dt><span class="dots"></span><dd>Together</dd></div>
+      <div class="row"><dt>Find where information gets lost</dt><span class="dots"></span><dd>Together</dd></div>
+    </dl>
+    <h3>Design the solution</h3>
+    <dl>
+      <div class="row"><dt>Pick the simplest reliable approach</dt><span class="dots"></span><dd>Me</dd></div>
+      <div class="row"><dt>Improve, connect or build custom</dt><span class="dots"></span><dd>Me</dd></div>
+    </dl>
+    <h3>Build and test</h3>
+    <dl>
+      <div class="row"><dt>Handle the edge cases</dt><span class="dots"></span><dd>Me</dd></div>
+      <div class="row"><dt>Test before relying on it</dt><span class="dots"></span><dd>Me + you</dd></div>
+    </dl>
+    <h3>Keep people in control</h3>
+    <dl>
+      <div class="row"><dt>Automate the repetitive work</dt><span class="dots"></span><dd>System</dd></div>
+      <div class="row"><dt>People review judgment calls</dt><span class="dots"></span><dd>Your team</dd></div>
+    </dl>
+    <h3>Improve over time</h3>
+    <dl>
+      <div class="row"><dt>Monitor reliability</dt><span class="dots"></span><dd>Ongoing</dd></div>
+      <div class="row"><dt>Refine and keep it maintainable</dt><span class="dots"></span><dd>Ongoing</dd></div>
+    </dl>
+    <div class="total"><span>A system your team actually uses</span><span>People in control</span></div>
+  </div>
+</section>
+
+<section class="about" id="about" aria-label="About Louise Ashley Ocampo">
+  <p data-reveal>I'm Louise Ashley Ocampo, an <span class="mark m2">AI automation engineer</span> and creative problem-solver based in <span class="mark m1">Angeles City, Philippines</span>, working remotely with international teams. My background combines software development, business operations and <span class="mark m3">creative design</span>: social media creatives, ebooks, UI/UX, AI-generated imagery, motion design and client projects, plus experience in sales and customer-facing work. In 2026 I built four systems for a <span class="mark m1">U.S. collections law firm</span>, focused on document processing, workflow automation, quality checks and reliability, including testing, backups and helping teams adopt them. Since 2025 I've worked on <span class="mark m2">CRM automation</span> and business workflows for a U.S. real estate and adjudication business with GoHighLevel, Python, APIs and n8n. My toolkit includes Python, Flask, SQL, JavaScript, Docker, Linux and AI-assisted development with Claude Code. I enjoy the problems businesses accept as normal: repetitive tasks, disconnected tools, duplicated data, unclear processes and information entered or checked more than once. I bring creative thinking to the design, systems thinking to the process, and technical execution to the solution. <a class="mark m1" href="#contact">I don't just build automations. I build business solutions.</a></p>
 </section>
 
 <section class="contact" id="contact" aria-labelledby="contact-title">
   <div class="contact-inner">
-    <h2 id="contact-title" data-reveal>What does your team retype every week?</h2>
-    <p class="contact-sub" data-reveal>Tell me, and I'll say what I'd automate first.</p>
+    <h2 id="contact-title" data-reveal>Tell me about it.</h2>
+    <p class="contact-q" data-reveal>What's slowing your team down, or what idea do you want to bring to life?</p>
+    <p class="contact-sub" data-reveal>Available for remote opportunities, technical projects, automation consulting and creative collaborations.</p>
     <form class="field" id="note-form" action="mailto:ocampolouiseashley@gmail.com" method="post" enctype="text/plain" data-reveal style="--d:1">
       <label for="note" class="sr" style="position:absolute;left:-9999px">Your note</label>
-      <input id="note" name="note" type="text" placeholder="Invoices from 40 suppliers into our books" autocomplete="off">
+      <input id="note" name="note" type="text" placeholder="Leads from three forms into one CRM" autocomplete="off">
       <button type="submit" aria-label="Write the email">→</button>
     </form>
     <p class="field-note" data-reveal style="--d:2">Opens your email app with your note filled in. Nothing is stored on this site.</p>
@@ -579,8 +660,8 @@ a { color: inherit; }
 <footer class="foot">
   <div class="foot-top">
     <div class="foot-invite">
-      <h2 class="display" data-reveal>Send me<br>the stack.</h2>
-      <a class="btn" href="mailto:ocampolouiseashley@gmail.com" data-reveal style="--d:1">Email Ashley</a>
+      <h2 class="display" data-reveal>Let's work<br>together.</h2>
+      <a class="btn" href="mailto:ocampolouiseashley@gmail.com" data-reveal style="--d:1">Email Louise Ashley</a>
     </div>
     <ul class="foot-links" data-reveal style="--d:2">
       <li><a href="mailto:ocampolouiseashley@gmail.com">Email</a></li>
@@ -590,7 +671,7 @@ a { color: inherit; }
   </div>
   <div class="credits">
     <p>Pictures: bank ledger from <a href="https://commons.wikimedia.org/wiki/File:Modern_banking_methods_and_practical_bank_bookkeeping;_illustrated_with_over_two_hundred_forms_of_bank_books,_records_and_blanks_(1903)_(14597619308).jpg" rel="noopener">Modern Banking Methods (1903)</a> and collection card from <a href="https://commons.wikimedia.org/wiki/File:How_to_collect_money_by_mail;_how_to_write_effective_collection_letters-testing_copy-planning_a_series-retail,_instalment_and_dealer_accounts-credit_system-collection_schemes_and_legal_steps-how_(14764762284).jpg" rel="noopener">How to Collect Money by Mail (1913)</a>, Internet Archive Book Images, no known copyright restrictions; <a href="https://commons.wikimedia.org/w/index.php?curid=153582894" rel="noopener">card catalog</a> by TBurmeister (WMF), CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Grist!%E2%80%94Edison-Dick_Mimeograph.jpg" rel="noopener">Edison-Dick Mimeograph advertisement</a> and <a href="https://commons.wikimedia.org/wiki/File:Operating_the_Comptometer_-_4_-_Position_of_Hands_for_Addition.png" rel="noopener">Operating the Comptometer</a>, public domain; <a href="https://commons.wikimedia.org/wiki/File:The_electric_teleprinter_Automatik_Lo_133.webm" rel="noopener">teleprinter footage</a> by Konrad Gutkowski, CC BY 3.0. All via Wikimedia Commons, shown in black and white.</p>
-    <p>© 2026 Ashley Ocampo</p>
+    <p>© 2026 Louise Ashley Ocampo</p>
   </div>
   <p class="display giant" aria-hidden="true">Ocampo</p>
 </footer>
@@ -684,6 +765,7 @@ a { color: inherit; }
       keys.forEach((o) => o.setAttribute("aria-pressed", "false"));
       k.setAttribute("aria-pressed", "true");
       keyName.textContent = k.dataset.name;
+      keyName.animate?.([{ opacity: 0, transform: "translateY(12px)" }, { opacity: 1, transform: "none" }], { duration: 320, easing: "cubic-bezier(.16,1,.3,1)" });
       keyUse.textContent = k.dataset.use;
     });
   });
@@ -694,7 +776,7 @@ a { color: inherit; }
     const note = document.getElementById("note").value.trim();
     const body = (note ? note + "\n\n" : "") + "(Sent from ashley's portfolio)";
     window.location.href = "mailto:ocampolouiseashley@gmail.com?subject=" +
-      encodeURIComponent("Something my team retypes every week") + "&body=" + encodeURIComponent(body);
+      encodeURIComponent("Let's work together") + "&body=" + encodeURIComponent(body);
   });
 })();
 </script>
