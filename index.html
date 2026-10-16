@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ashley Ocampo · AI & Automation Engineer</title>
+<meta name="description" content="Ashley Ocampo builds AI agents, document pipelines and automations that take repetitive work off teams, with a person approving what matters.">
+<meta property="og:title" content="Ashley Ocampo · AI & Automation Engineer">
+<meta property="og:description" content="AI agents, document pipelines and automations that take repetitive work off teams.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one column that reads like a well-kept work log; project cards show the before -> after of each system */
+:root {
+  --bg: #f6f7f5;
+  --surface: #ffffff;
+  --ink: #17202a;
+  --muted: #5b6672;
+  --rule: #dde2e0;
+  --accent: #0f5c6e;
+  --accent-soft: #e1eef0;
+  --flag: #b4621a;
+  --flag-soft: #f7ead9;
+  --display: "Familjen Grotesk", "Arial Narrow", Arial, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+  --mono: "IBM Plex Mono", Consolas, "Courier New", monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #11171c; --surface: #172028; --ink: #e6ebee; --muted: #9aa7b1; --rule: #26323b;
+    --accent: #6fbccc; --accent-soft: #173640; --flag: #e3a05b; --flag-soft: #3a2a19;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-size: 17px; line-height: 1.6;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+.wrap {
+  max-width: 880px; margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left));
+  padding-right: max(20px, env(safe-area-inset-right));
+}
+header.top { padding-block: 64px 40px; }
+.who { font-family: var(--mono); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 18px; }
+h1 { font-family: var(--display); font-weight: 600; font-size: clamp(34px, 6.4vw, 58px); line-height: 1.04; letter-spacing: -0.01em; margin: 0 0 20px; text-wrap: balance; max-width: 18ch; }
+h1 em { font-style: normal; color: var(--accent); }
+.lede { font-size: 19px; color: var(--muted); max-width: 58ch; margin: 0 0 28px; }
+.links { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); color: var(--ink); text-decoration: none; font-weight: 500; font-size: 15px; }
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.btn.primary:hover { filter: brightness(1.08); color: var(--bg); }
+
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; margin-bottom: 8px; }
+.fact { background: var(--surface); padding: 16px 18px; }
+.fact b { display: block; font-family: var(--mono); font-weight: 500; font-size: 24px; font-variant-numeric: tabular-nums; }
+.fact span { font-size: 14px; color: var(--muted); line-height: 1.4; display: block; margin-top: 2px; }
+
+section { padding-block: 56px 8px; }
+h2 { font-family: var(--display); font-weight: 600; font-size: 28px; margin: 0 0 6px; }
+.sub { color: var(--muted); margin: 0 0 24px; max-width: 62ch; }
+
+.cards { display: grid; gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 22px 24px; min-width: 0; }
+.card h3 { font-family: var(--display); font-weight: 600; font-size: 21px; margin: 0 0 4px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
+.tag { font-family: var(--mono); font-size: 11.5px; font-weight: 400; letter-spacing: .05em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; background: var(--accent-soft); color: var(--accent); }
+.tag.pilot { background: var(--flag-soft); color: var(--flag); }
+.card p { margin: 6px 0 0; }
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0 12px; }
+.ba div { padding: 10px 12px; border-radius: 6px; font-size: 15px; line-height: 1.45; }
+.ba .before { background: var(--bg); color: var(--muted); }
+.ba .after { background: var(--accent-soft); }
+.ba small { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 3px; color: var(--muted); }
+.card ul { margin: 8px 0 0; padding-left: 18px; }
+.card li { margin-bottom: 4px; }
+.flow { font-family: var(--mono); font-size: 13px; color: var(--muted); margin: 12px 0 0; overflow-x: auto; white-space: nowrap; padding-bottom: 2px; }
+.flow i { font-style: normal; color: var(--accent); padding: 0 6px; }
+.stack { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.stack span { font-family: var(--mono); font-size: 12px; border: 1px solid var(--rule); border-radius: 4px; padding: 2px 7px; color: var(--muted); }
+.card .repo { margin-top: 14px; font-weight: 500; }
+
+.principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.principle { border-top: 2px solid var(--accent); padding-top: 12px; }
+.principle h3 { font-family: var(--display); font-size: 18px; margin: 0 0 4px; }
+.principle p { margin: 0; color: var(--muted); font-size: 15.5px; }
+
+.timeline { list-style: none; padding: 0; margin: 0; }
+.timeline li { display: grid; grid-template-columns: 150px 1fr; gap: 4px 20px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+.timeline .when { font-family: var(--mono); font-size: 13.5px; color: var(--muted); padding-top: 2px; }
+.timeline b { font-weight: 600; }
+.timeline p { margin: 2px 0 0; color: var(--muted); font-size: 15.5px; }
+
+.skills { display: grid; grid-template-columns: 140px 1fr; gap: 10px 20px; }
+.skills dt { font-weight: 600; }
+.skills dd { margin: 0; color: var(--muted); }
+
+footer { padding-block: 64px 48px; }
+.contact { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 28px; }
+.contact h2 { margin-bottom: 8px; }
+.contact p { margin: 0 0 18px; color: var(--muted); }
+.small { font-size: 13.5px; color: var(--muted); margin-top: 28px; }
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  header.top { padding-block: 40px 28px; }
+  .lede { font-size: 17.5px; }
+  .ba { grid-template-columns: 1fr; }
+  .timeline li, .skills { grid-template-columns: 1fr; }
+  .skills dd { margin-bottom: 8px; }
+  .card { padding: 18px; }
+  .flow { white-space: normal; line-height: 1.7; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .btn { transition: border-color .15s, color .15s, filter .15s; }
+}
+</style>
+</head>
+<body>
+
+<header class="top wrap">
+  <p class="who">Ashley Ocampo · AI &amp; Automation Engineer · Philippines (remote)</p>
+  <h1>I turn repetitive paperwork into <em>systems that run themselves.</em></h1>
+  <p class="lede">I build AI agents, document-reading pipelines and workflow automations in Python and n8n, and I run them in production. People still make the decisions; they just stop retyping data.</p>
+  <div class="links">
+    <a class="btn primary" href="mailto:ocampolouiseashley@gmail.com">Email me</a>
+    <a class="btn" href="https://github.com/ocampolouiseashley-jpg" rel="noopener">GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/ashley-ocampo-684bb4257/" rel="noopener">LinkedIn</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="facts">
+    <div class="fact"><b>4</b><span>systems built for one U.S. law firm, in production or pilot</span></div>
+    <div class="fact"><b>~400</b><span>automated tests on the main app</span></div>
+    <div class="fact"><b>4</b><span>AI models compared on known answers before picking one</span></div>
+    <div class="fact"><b>0</b><span>documents sent without a person approving them</span></div>
+  </div>
+</div>
+
+<section class="wrap" id="work">
+  <h2>Client work</h2>
+  <p class="sub">Built for a U.S. collections law firm. The code belongs to the client, so these are summaries; I'm happy to walk through any of them on a call.</p>
+  <div class="cards">
+
+    <article class="card">
+      <h3>Bank statement review system <span class="tag">Production</span></h3>
+      <div class="ba">
+        <div class="before"><small>Before</small>Staff read every bank statement line by line and typed each payer into a spreadsheet.</div>
+        <div class="after"><small>After</small>Upload the file. The system lists incoming payments and likely payers; the team approves, corrects or rejects.</div>
+      </div>
+      <ul>
+        <li>Python OCR and layout reader for different banks' formats, scanned pages and receivables reports.</li>
+        <li>Approved results sync to the case trackers on their own; a correction updates the same row instead of adding a duplicate.</li>
+        <li>Team corrections are stored and fed back, and a weekly review turns repeat mistakes into fixes.</li>
+        <li>Logins with roles, audit log, undo and restore, error alerts, nightly backups, hardened Linux server.</li>
+      </ul>
+      <p class="flow">PDF<i>→</i>OCR reader<i>→</i>n8n rules<i>→</i>review page<i>→</i>approved<i>→</i>trackers</p>
+      <div class="stack"><span>Python</span><span>Flask</span><span>SQLite</span><span>n8n</span><span>Docker</span><span>Google Sheets API</span></div>
+    </article>
+
+    <article class="card">
+      <h3>Registered agent research agent <span class="tag pilot">Pilot</span></h3>
+      <div class="ba">
+        <div class="before"><small>Before</small>Search each state's business website, one company at a time, for about 500 companies.</div>
+        <div class="after"><small>After</small>Free government data first, an LLM agent with web search only for the rest. Every answer comes with a source and a quote.</div>
+      </div>
+      <ul>
+        <li>Picked the model by testing four inside the real agent on companies with known answers, not by benchmarks.</li>
+        <li>Answers must match a fixed format; failures retry, then switch to a backup model, with a circuit breaker if errors pile up.</li>
+        <li>Only a company name and state ever leave the firm; web content is treated as untrusted data.</li>
+        <li>Pilot: agent found for 21 of 24 companies, each one approved by a reviewer.</li>
+      </ul>
+      <p class="flow">company list<i>→</i>past answers<i>→</i>state open data<i>→</i>registry page<i>→</i>AI agent<i>→</i>reviewer</p>
+      <div class="stack"><span>Python</span><span>LLM agents</span><span>tool use</span><span>open data APIs</span><span>evals</span></div>
+    </article>
+
+    <article class="card">
+      <h3>Legal notice generator <span class="tag">Co-built</span></h3>
+      <div class="ba">
+        <div class="before"><small>Before</small>Find the case, check the tax ID by hand, copy details into a template.</div>
+        <div class="after"><small>After</small>Case matched and tax ID checked against the case documents; a draft Doc and PDF wait for review.</div>
+      </div>
+      <p>Built the first version with a teammate who now owns it: pre-screening with clear reasons, case matching that never guesses, a document check, and a log so nothing is made twice.</p>
+      <div class="stack"><span>n8n</span><span>Google Docs/Drive/Sheets</span></div>
+    </article>
+
+    <article class="card">
+      <h3>PDF tools for the team <span class="tag">Production</span></h3>
+      <p>Browser tools that replaced a desktop app: insert a court judgment into the right page of each document, add blank pages for double-sided printing, and compress files for upload limits. Nobody installs anything, and files aren't kept on the server.</p>
+      <div class="stack"><span>Python</span><span>pypdf</span><span>Pillow</span></div>
+    </article>
+
+  </div>
+</section>
+
+<section class="wrap" id="projects">
+  <h2>Open source</h2>
+  <p class="sub">Small projects with fake sample data, tests, and a README that explains the design choices.</p>
+  <div class="cards">
+
+    <article class="card">
+      <h3>invoice-checker</h3>
+      <p>Reads supplier invoice PDFs with the Claude API using structured outputs, then flags the ones a person should look at: totals that don't add up, wrong line math, duplicates, missing PO numbers, impossible dates. The AI copies the numbers; plain code does the judging, so every rule is testable.</p>
+      <p class="flow">invoice PDF<i>→</i>Claude (JSON schema)<i>→</i>validate<i>→</i>rule checks<i>→</i>ok / needs review</p>
+      <div class="stack"><span>Python</span><span>Claude API</span><span>Pydantic</span><span>pytest</span></div>
+      <p class="repo"><a href="https://github.com/ocampolouiseashley-jpg/invoice-checker" rel="noopener">github.com/ocampolouiseashley-jpg/invoice-checker →</a></p>
+    </article>
+
+    <article class="card">
+      <h3>packet-builder</h3>
+      <p>Turns a spreadsheet into ready-to-mail document packets: fills a Word template for every row (including placeholders Word splits into pieces), converts to PDF, inserts an attachment at the right page, pads for double-sided printing and builds one print batch. Rows with missing data are skipped and reported instead of going out with blanks.</p>
+      <p class="flow">CSV + Word template<i>→</i>fill<i>→</i>PDF<i>→</i>insert attachment<i>→</i>duplex padding<i>→</i>print batch</p>
+      <div class="stack"><span>Python</span><span>python-docx</span><span>pypdf</span><span>LibreOffice</span><span>pytest</span></div>
+      <p class="repo"><a href="https://github.com/ocampolouiseashley-jpg/packet-builder" rel="noopener">github.com/ocampolouiseashley-jpg/packet-builder →</a></p>
+    </article>
+
+  </div>
+</section>
+
+<section class="wrap" id="how">
+  <h2>How I work</h2>
+  <p class="sub">The same few rules show up in everything I build.</p>
+  <div class="principles">
+    <div class="principle"><h3>Cheapest reliable source first</h3><p>Free official data and plain code before an AI model, and a small model before a big one.</p></div>
+    <div class="principle"><h3>The AI copies, the code judges</h3><p>Models extract and summarize. Business rules live in code with tests, where they can't quietly drift.</p></div>
+    <div class="principle"><h3>People approve what matters</h3><p>Nothing goes out without a person signing off, and their corrections teach the system.</p></div>
+    <div class="principle"><h3>Test before it ships</h3><p>Old and new versions run side by side on real files before a change goes live.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="experience">
+  <h2>Experience</h2>
+  <ul class="timeline">
+    <li><span class="when">2026</span><div><b>AI &amp; Automation Engineer (Contract)</b> · U.S. law firm, New York<p>The systems above, end to end: design, build, deploy, run, and train four teams.</p></div></li>
+    <li><span class="when">2025 – 2026</span><div><b>GHL Specialist / Automation Developer</b> · Direct client, U.S. real estate and adjudication<p>GoHighLevel automations and AI agents, connected to other systems with Python, APIs and n8n.</p></div></li>
+    <li><span class="when">2025 – 2026</span><div><b>Junior Designer</b> · Social Donut<p>UI/UX, graphic design and branding.</p></div></li>
+    <li><span class="when">2020 – 2024</span><div><b>Junior Creative &amp; Innovation Lead</b> · Admattic LLC<p>Creative direction across branding, UI/UX and campaigns, guiding teams from concept to delivery.</p></div></li>
+  </ul>
+</section>
+
+<section class="wrap" id="skills">
+  <h2>Skills</h2>
+  <dl class="skills">
+    <dt>AI</dt><dd>LLM agents and tool use, structured outputs, model testing and selection, prompt engineering, OCR and document processing</dd>
+    <dt>Automation</dt><dd>n8n, GoHighLevel, Zapier, Make, Twilio, webhooks, Google Workspace APIs</dd>
+    <dt>Development</dt><dd>Python (Flask, Pydantic, pypdf), JavaScript, SQL, REST APIs, authentication, automated testing, Git</dd>
+    <dt>Infrastructure</dt><dd>Docker, Linux servers, backups, server security</dd>
+    <dt>Design</dt><dd>UI/UX, graphic design, branding</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <div class="contact">
+    <h2>Have repetitive work you'd like gone?</h2>
+    <p>I'm open to remote roles and projects in AI and automation. Email is the fastest way to reach me.</p>
+    <div class="links">
+      <a class="btn primary" href="mailto:ocampolouiseashley@gmail.com">ocampolouiseashley@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/ashley-ocampo-684bb4257/" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <p class="small">Built with plain HTML and CSS, hosted on Vercel.</p>
+</footer>
+
+</body>
+</html>
