@@ -136,10 +136,18 @@ a { color: inherit; }
 .typed:focus-visible { outline: 2px solid var(--steel); outline-offset: 8px; }
 .tryit-lower { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; margin-top: 48px; }
 .answer { grid-column: 1 / 7; min-width: 0; }
-.verdict { display: inline-block; padding: 6px 14px; font-weight: 600; border-radius: 999px; }
-.verdict.ok { background: var(--steel); color: var(--paper-ink); }
-.verdict.flag { background: var(--paper); color: var(--paper-ink); }
+.verdict { display: inline-flex; align-items: center; gap: 12px; padding: 9px 22px 9px 10px; font-size: var(--step-lead); font-weight: 600; border-radius: 999px; color: var(--paper-ink); }
+.verdict::before { content: ""; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; font-size: 1rem; line-height: 1; }
+.verdict.flag { background: #c9ced5 url("assets/steel.jpg") center / cover; }
+.verdict.flag::before { content: "!"; background: var(--paper-ink); color: var(--paper); }
+.verdict.ok { background: var(--ice); }
+.verdict.ok::before { content: "¹3"; background: var(--paper-ink); color: var(--ice); }
 .verdict.none { background: var(--graphite); color: var(--ink); }
+.verdict.none::before { content: "?"; background: var(--steel-dark); color: var(--ink); }
+@media (prefers-reduced-motion: no-preference) {
+  .verdict.pop { animation: pop 420ms cubic-bezier(.34, 1.4, .64, 1); }
+}
+@keyframes pop { from { transform: scale(0.92); } to { transform: none; } }
 .answer p { margin: 14px 0 0; font-family: var(--serif); font-size: var(--step-lead); line-height: 1.25; max-width: 32ch; }
 .examples { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .examples span { color: var(--muted); margin-right: 4px; }
@@ -494,7 +502,7 @@ a { color: inherit; }
     <input class="typed" id="typed" type="text" value="12 × 48.00 = 567.00" autocomplete="off" spellcheck="false" inputmode="text" data-ui data-reveal style="--d:1">
     <div class="tryit-lower">
       <div class="answer" aria-live="polite" data-reveal style="--d:2">
-        <span class="verdict flag" id="verdict">Needs review</span>
+        <span class="verdict flag" id="verdict">Doesn't add up</span>
         <p id="reason">12 × 48.00 is 576.00. The invoice says 567.00.</p>
         <div class="examples">
           <span>Try:</span>
@@ -561,7 +569,6 @@ a { color: inherit; }
     <div class="wall-row mid">
       <figure data-reveal style="--r:1.381; --d:0"><img src="assets/work/landing-ui.jpg" width="1000" height="724" alt="Dark landing page design for an infrastructure software product." loading="lazy"><figcaption>Landing page UI</figcaption></figure>
       <figure data-reveal style="--r:1.000; --d:1"><img src="assets/work/amazon-bundle.jpg" width="1000" height="1000" alt="Amazon A+ module showing a folded bedding bundle with labelled parts." loading="lazy"><figcaption>Amazon A+ module</figcaption></figure>
-      <figure data-reveal style="--r:1.000; --d:2"><img src="assets/work/brand-identity.jpg" width="1000" height="1000" alt="Brand identity sheet with cactus logos, a wordmark and a colour palette." loading="lazy"><figcaption>Brand identity</figcaption></figure>
     </div>
     <div class="wall-row tall">
       <figure data-reveal style="--r:0.800; --d:3"><img src="assets/work/event-poster.jpg" width="800" height="1000" alt="Black and pink collage poster with distressed type." loading="lazy"><figcaption>Event poster</figcaption></figure>
@@ -876,7 +883,9 @@ a { color: inherit; }
   }
 
   function show(kind, label, text) {
+    const changed = verdict.textContent !== label;
     verdict.className = "verdict " + kind;
+    if (changed) { void verdict.offsetWidth; verdict.classList.add("pop"); }
     verdict.textContent = label;
     reason.textContent = text;
   }
@@ -887,23 +896,23 @@ a { color: inherit; }
     if (m) {
       const want = money(m[1]) * money(m[2]), got = money(m[3]);
       return Math.abs(want - got) < 0.005
-        ? show("ok", "Looks right", `${m[1]} × ${m[2]} is ${fmt(want)}, and that's what the invoice says.`)
-        : show("flag", "Needs review", `${m[1]} × ${m[2]} is ${fmt(want)}. The invoice says ${fmt(got)}.`);
+        ? show("ok", "Checks out", `${m[1]} × ${m[2]} is ${fmt(want)}, and that's what the invoice says.`)
+        : show("flag", "Doesn't add up", `${m[1]} × ${m[2]} is ${fmt(want)}. The invoice says ${fmt(got)}.`);
     }
     m = line.match(new RegExp("^" + NUM + " ?\\+ ?" + NUM + " ?= ?" + NUM + "$"));
     if (m) {
       const want = money(m[1]) + money(m[2]), got = money(m[3]);
       return Math.abs(want - got) < 0.005
-        ? show("ok", "Looks right", `Subtotal plus tax is ${fmt(want)}, which matches the total.`)
-        : show("flag", "Needs review", `Subtotal plus tax is ${fmt(want)}. The total says ${fmt(got)}.`);
+        ? show("ok", "Checks out", `Subtotal plus tax is ${fmt(want)}, which matches the total.`)
+        : show("flag", "Doesn't add up", `Subtotal plus tax is ${fmt(want)}. The total says ${fmt(got)}.`);
     }
     m = line.match(/issued\s+(.+?),?\s+due\s+(.+)$/i);
     if (m) {
       const issued = parseDate(m[1]), due = parseDate(m[2]);
       if (issued && due) {
         return due < issued
-          ? show("flag", "Needs review", "The due date comes before the invoice date.")
-          : show("ok", "Looks right", "The due date comes after the invoice date.");
+          ? show("flag", "Dates don't match", "The due date comes before the invoice date.")
+          : show("ok", "Checks out", "The due date comes after the invoice date.");
       }
     }
     show("none", "Can't read that yet", "Try a line like 12 × 48.00 = 576.00, 100 + 8 = 108, or issued Sep 10, due Oct 10.");
