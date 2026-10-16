@@ -125,58 +125,105 @@ a { color: inherit; }
 .folder-text .before { font-family: var(--serif); font-size: var(--step-body); line-height: 1.35; }
 .folder-text a { font-weight: 600; text-underline-offset: 4px; }
 
-/* ---------- Try it ---------- */
+/* ---------- Try it: packet-builder in the browser ---------- */
 .tryit { background: var(--bg); padding: 160px var(--margin) 140px; }
-.typed-label { display: block; margin: 0 0 12px; }
-.typed {
-  width: 100%; display: block; background: none; border: 0; padding: 0; margin: 0; color: var(--ink); caret-color: var(--steel);
-  font: 400 var(--step-head)/1 var(--serif); letter-spacing: -0.01em; font-variant-numeric: tabular-nums;
-}
-.typed:focus { outline: none; }
-.typed:focus-visible { outline: 2px solid var(--steel); outline-offset: 8px; }
-.tryit-lower { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; margin-top: 48px; }
-.answer { grid-column: 1 / 7; min-width: 0; }
-.verdict { display: inline-flex; align-items: center; gap: 12px; padding: 9px 22px 9px 10px; font-size: var(--step-lead); font-weight: 600; border-radius: 999px; color: var(--paper-ink); }
-.verdict::before { content: ""; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; font-size: 1rem; line-height: 1; }
+.try-head { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: end; margin-bottom: 56px; }
+.try-head h2 { grid-column: 1 / 8; font-size: var(--step-head); }
+.try-head p { grid-column: 8 / 13; margin: 0; max-width: 46ch; }
+.pb { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: start; }
+.pb-controls { grid-column: 1 / 6; display: grid; gap: 20px; background: var(--surface); border-radius: 24px; padding: 24px; }
+.pb-label { margin: 0 0 10px; color: var(--muted); font-size: var(--step-small); }
+.pb-records { display: grid; gap: 8px; }
+.pb-rec { display: grid; grid-template-columns: 92px 1fr; gap: 4px 12px; align-items: center; background: var(--graphite); border-radius: 14px; padding: 10px 14px; }
+.pb-rec b { font-weight: 600; font-size: var(--step-small); color: var(--muted); }
+.pb-rec .co { font-family: var(--serif); font-size: var(--step-lead); line-height: 1.1; }
+.pb-rec input { grid-column: 2; width: 100%; min-height: 40px; border: 0; border-radius: 10px; padding: 0 12px; background: var(--paper); color: var(--paper-ink); font: 400 var(--step-small)/1 var(--sans); }
+.pb-rec input:focus { outline: 2px solid var(--ice); outline-offset: 2px; }
+.pb-rec .lab { grid-column: 1; font-size: var(--step-small); color: var(--muted); }
+.pb-settings { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pb-field { display: flex; flex-direction: column; gap: 8px; background: var(--graphite); border-radius: 14px; padding: 12px 14px; font-size: var(--step-small); color: var(--muted); }
+.stepper { display: flex; align-items: center; gap: 10px; color: var(--ink); }
+.stepper button { width: 36px; height: 36px; border: 0; border-radius: 50%; background: var(--paper); color: var(--paper-ink); font: 600 1.1rem/1 var(--sans); cursor: pointer; }
+.stepper button:active { transform: scale(0.92); }
+.stepper button:disabled { opacity: .35; cursor: default; }
+.stepper output { min-width: 1.5ch; text-align: center; font-family: var(--serif); font-size: var(--step-lead); }
+.pb-field select { min-height: 40px; border: 0; border-radius: 10px; padding: 0 10px; background: var(--paper); color: var(--paper-ink); font: 500 var(--step-small)/1 var(--sans); }
+.pb-switch { position: relative; }
+.pb-switch input { position: absolute; opacity: 0; width: 56px; height: 32px; margin: 0; left: 14px; bottom: 12px; cursor: pointer; z-index: 1; }
+.pb-switch .knob { width: 56px; height: 32px; border-radius: 999px; background: var(--steel-dark); position: relative; transition: background-color 200ms; }
+.pb-switch .knob::after { content: ""; position: absolute; top: 4px; left: 4px; width: 24px; height: 24px; border-radius: 50%; background: var(--paper); transition: transform 260ms cubic-bezier(.34, 1.3, .64, 1); }
+.pb-switch input:checked + .knob { background: var(--ice); }
+.pb-switch input:checked + .knob::after { transform: translateX(24px); background: var(--paper-ink); }
+.pb-switch input:focus-visible + .knob { outline: 2px solid var(--ice); outline-offset: 3px; }
+.pb-output { grid-column: 6 / 13; min-width: 0; }
+.pb-packets { display: grid; gap: 14px; }
+.packet { background: var(--surface); border-radius: 20px; padding: 18px 20px; }
+.packet-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin-bottom: 14px; }
+.packet-name { margin: 0; font-family: var(--serif); font-size: var(--step-lead); line-height: 1.1; }
+.packet-name small { display: block; font-family: var(--sans); font-size: var(--step-small); color: var(--muted); }
+.sheets { display: flex; flex-wrap: wrap; gap: 12px 16px; }
+.sheet { display: flex; gap: 3px; }
+.pg { display: inline-grid; place-items: end start; width: 40px; height: 52px; border-radius: 3px; padding: 4px 5px; font-size: var(--step-small); font-weight: 600; line-height: 1; }
+.pg-l { background: var(--paper); color: var(--paper-ink); }
+.pg-a { background: var(--ice); color: var(--paper-ink); }
+.pg-b { background: var(--steel-dark); color: var(--paper-ink); }
+.pb-legend .pg { width: 14px; height: 18px; padding: 0; vertical-align: -3px; margin: 0 6px 0 12px; }
+.pb-legend .pg:first-child { margin-left: 0; }
+.skip-reason { margin: 0; color: var(--muted); }
+.pb-total { margin: 18px 0 6px; font-family: var(--serif); font-size: var(--step-lead); }
+.pb-legend { margin: 0 0 24px; font-size: var(--step-small); color: var(--muted); }
+.verdict { display: inline-flex; align-items: center; gap: 10px; padding: 7px 18px 7px 8px; font-size: var(--step-small); font-weight: 600; border-radius: 999px; color: var(--paper-ink); }
+.verdict::before { content: ""; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; font-size: 0.8125rem; line-height: 1; }
+.verdict.ok { background: var(--ice); }
+.verdict.ok::before { content: "\2713"; background: var(--paper-ink); color: var(--ice); }
 .verdict.flag { background: #c9ced5 url("assets/steel.jpg") center / cover; }
 .verdict.flag::before { content: "!"; background: var(--paper-ink); color: var(--paper); }
-.verdict.ok { background: var(--ice); }
-.verdict.ok::before { content: "¹3"; background: var(--paper-ink); color: var(--ice); }
-.verdict.none { background: var(--graphite); color: var(--ink); }
-.verdict.none::before { content: "?"; background: var(--steel-dark); color: var(--ink); }
 @media (prefers-reduced-motion: no-preference) {
+  .pg { animation: page-in 380ms var(--ease-out) both; animation-delay: calc(var(--i, 0) * 28ms); }
   .verdict.pop { animation: pop 420ms cubic-bezier(.34, 1.4, .64, 1); }
 }
+@keyframes page-in { from { opacity: 0; transform: translateY(10px) scale(.92); } to { opacity: 1; transform: none; } }
 @keyframes pop { from { transform: scale(0.92); } to { transform: none; } }
-.answer p { margin: 14px 0 0; font-family: var(--serif); font-size: var(--step-lead); line-height: 1.25; max-width: 32ch; }
-.examples { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-.examples span { color: var(--muted); margin-right: 4px; }
-.examples button { min-height: 40px; padding: 0 14px; border: 0; border-radius: 999px; background: var(--graphite); color: var(--ink); font: 500 var(--step-small)/1 var(--sans); cursor: pointer; font-variant-numeric: tabular-nums; }
-.examples button:hover { background: #333; }
-.examples button:active { transform: scale(0.97); }
-.tryit-side { grid-column: 8 / 13; min-width: 0; align-self: start; }
-.tryit-side figure { margin: 0 0 20px; background: var(--surface); }
-.tryit-side img { width: 100%; filter: grayscale(1) contrast(1.05); }
-.tryit-side figcaption { padding: 10px 12px; font-size: var(--step-small); color: var(--muted); }
-.tryit-side p { margin: 0 0 14px; }
-.repos { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 10px; }
-.repos a { display: block; padding: 14px 18px; background: var(--surface); text-decoration: none; border-radius: 14px; }
+.repos { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.repos a { display: block; height: 100%; padding: 14px 18px; background: var(--surface); text-decoration: none; border-radius: 16px; }
 .repos a:hover { background: var(--graphite); }
 .repos b { display: block; font-family: var(--serif); font-weight: 400; font-size: var(--step-lead); }
 .repos span { font-size: var(--step-small); color: var(--muted); }
 
-/* ---------- Business systems: paper ---------- */
-.growth { background: var(--paper); color: var(--paper-ink); padding: 150px var(--margin) 140px; display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: start; }
-.growth-intro { grid-column: 1 / 6; position: sticky; top: 32px; }
-.growth-title { margin: 0 0 24px; font-size: var(--step-head); }
-.growth-intro p { margin: 0 0 14px; max-width: 40ch; }
-.growth-intro .growth-note { font-size: var(--step-small); color: var(--paper-muted); }
-.growth-btn { margin-top: 14px; background: var(--paper-ink); color: var(--paper); }
-.growth-btn:hover { background: #23272d; }
-.cap-groups { grid-column: 7 / 13; display: grid; gap: 56px; }
-.cap-group h3 { margin: 0 0 12px; font-family: var(--serif); font-weight: 400; font-size: var(--step-lead); line-height: 1.1; }
-.cap-group ul { margin: 0; padding-left: 1.1em; }
-.cap-group li { margin-bottom: 6px; }
+/* ---------- Business systems: a feature switcher on a chrome card ---------- */
+.growth { background: var(--surface); color: var(--ink); padding: 160px var(--margin) 150px; display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: start; }
+.growth-intro { grid-column: 1 / 13; display: grid; grid-template-columns: repeat(12, 1fr); gap: 8px 24px; align-items: end; margin-bottom: 48px; }
+.growth-title { grid-column: 1 / 7; grid-row: span 4; margin: 0; font-size: var(--step-display); align-self: start; }
+.growth-intro p { grid-column: 8 / 13; margin: 0 0 6px; max-width: 46ch; }
+.growth-intro .growth-note { font-size: var(--step-small); color: var(--muted); }
+.growth-btn { grid-column: 8 / 13; justify-self: start; margin-top: 10px; }
+.switcher { grid-column: 1 / 13; display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: stretch; }
+.sw-list { grid-column: 1 / 6; display: grid; gap: 6px; align-content: start; }
+.sw-tab {
+  text-align: left; border: 0; border-radius: 18px; padding: 18px 20px; background: none; color: var(--muted); cursor: pointer;
+  display: grid; gap: 4px; transition: background-color 200ms, color 200ms;
+}
+.sw-tab .sw-title { font-family: var(--serif); font-size: clamp(1.6rem, 1.1rem + 1.4vw, 2.4rem); line-height: 1.02; letter-spacing: -0.01em; }
+.sw-tab .sw-sum { font: 400 var(--step-small)/1.4 var(--sans); }
+.sw-tab:hover { color: var(--ink); }
+.sw-tab[aria-selected="true"] { background: var(--graphite); color: var(--ink); }
+.sw-tab[aria-selected="true"] .sw-sum { color: var(--ice); }
+.sw-tab:active { transform: scale(0.99); }
+.sw-panel {
+  grid-column: 6 / 13; min-height: 460px; border-radius: 28px; padding: clamp(28px, 4vw, 56px);
+  background: #b9bfc7 url("assets/steel.jpg") center / cover; color: var(--paper-ink); display: flex; align-items: flex-end; overflow: hidden;
+}
+.sw-content h3 { margin: 0 0 18px; font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 1.1rem + 1.4vw, 2.4rem); line-height: 1.02; letter-spacing: -0.01em; }
+.sw-content ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.sw-content li { display: flex; gap: 12px; align-items: baseline; font-size: var(--step-body); }
+.sw-content li::before { content: ""; flex: 0 0 8px; height: 8px; border-radius: 50%; background: var(--paper-ink); translate: 0 -2px; }
+@media (prefers-reduced-motion: no-preference) {
+  .sw-content.swap h3, .sw-content.swap li { animation: sw-in 600ms var(--ease-out) both; }
+  .sw-content.swap li:nth-child(1) { animation-delay: 60ms; } .sw-content.swap li:nth-child(2) { animation-delay: 110ms; }
+  .sw-content.swap li:nth-child(3) { animation-delay: 160ms; } .sw-content.swap li:nth-child(4) { animation-delay: 210ms; }
+  .sw-content.swap li:nth-child(5) { animation-delay: 260ms; }
+}
+@keyframes sw-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 
 /* ---------- Creative: black gallery ---------- */
 .creative { background: var(--bg); padding: 160px var(--margin) 150px; display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
@@ -342,6 +389,9 @@ a { color: inherit; }
 
 /* ---------- Wide tablets ---------- */
 @media (max-width: 1100px) {
+  .pb-controls, .pb-output { grid-column: 1 / -1; }
+  .sw-list { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; }
+  .sw-panel { grid-column: 1 / -1; }
   .stack { grid-template-columns: 1fr; }
   .stack-text, .keyboard-wrap { grid-column: 1 / -1; }
   .keyboard-wrap { margin-top: 24px; }
@@ -369,13 +419,15 @@ a { color: inherit; }
   .folder figure, .folder-text { grid-column: 1 / -1; }
   .folder figure { aspect-ratio: 4 / 3; }
   .tryit { padding: 100px var(--margin) 96px; }
-  .typed { font-size: var(--step-head); }
-  .tryit-lower { grid-template-columns: 1fr; margin-top: 28px; }
-  .answer, .tryit-side { grid-column: 1 / -1; }
-  .tryit-side { margin-top: 48px; }
+  .try-head, .pb { grid-template-columns: 1fr; }
+  .try-head h2, .try-head p, .pb-controls, .pb-output { grid-column: 1 / -1; }
+  .pb-settings, .repos { grid-template-columns: 1fr; }
   .growth { grid-template-columns: 1fr; padding: 96px var(--margin); }
-  .growth-intro, .cap-groups { grid-column: 1 / -1; position: static; }
-  .cap-groups { margin-top: 40px; gap: 40px; }
+  .growth-intro, .switcher { grid-column: 1 / -1; grid-template-columns: 1fr; }
+  .growth-title, .growth-intro p, .growth-btn, .sw-list, .sw-panel { grid-column: 1 / -1; }
+  .growth-title { grid-row: auto; margin-bottom: 16px; }
+  .sw-panel { min-height: 0; }
+  .sw-list { grid-template-columns: 1fr; }
   .creative { padding: 96px var(--margin); grid-template-columns: 1fr; }
 
   .creative-intro { grid-column: 1 / -1; }
@@ -496,29 +548,36 @@ a { color: inherit; }
   </article>
 </section>
 
-<section class="tryit" id="try" aria-labelledby="try-label">
-  <div class="tryit-main">
-    <label class="typed-label" id="try-label" for="typed" data-reveal>Type a line from an invoice and watch it get checked.</label>
-    <input class="typed" id="typed" type="text" value="12 × 48.00 = 567.00" autocomplete="off" spellcheck="false" inputmode="text" data-ui data-reveal style="--d:1">
-    <div class="tryit-lower">
-      <div class="answer" aria-live="polite" data-reveal style="--d:2">
-        <span class="verdict flag" id="verdict">Doesn't add up</span>
-        <p id="reason">12 × 48.00 is 576.00. The invoice says 567.00.</p>
-        <div class="examples">
-          <span>Try:</span>
-          <button type="button" data-example="400 × 0.85 = 340.00">400 × 0.85 = 340.00</button>
-          <button type="button" data-example="1,305.00 + 0.00 = 1,350.00">1,305.00 + 0.00 = 1,350.00</button>
-          <button type="button" data-example="issued 2026-09-10 due 2026-09-01">issued Sep 10, due Sep 1</button>
-        </div>
+<section class="tryit" id="try" aria-labelledby="try-title">
+  <div class="try-head">
+    <h2 class="display" id="try-title" data-reveal>Spreadsheet in, packets out.</h2>
+    <p data-reveal style="--d:1">This is packet-builder, one of my open-source tools, running in your browser. Change the settings or clear a contact name and watch the print batch rebuild. The rules are the same ones the real tool runs.</p>
+  </div>
+  <div class="pb" data-reveal style="--d:2">
+    <div class="pb-controls" data-ui>
+      <div class="pb-group">
+        <p class="pb-label">Customers</p>
+        <div class="pb-records" id="pb-records"></div>
       </div>
-      <div class="tryit-side">
-        <figure data-reveal><img src="assets/comptometer.jpg" width="1219" height="1097" alt="An 1895 instruction photograph of a clerk adding figures on a Comptometer, a ledger open beside him." loading="lazy"><figcaption>Adding by hand on a Comptometer, 1895</figcaption></figure>
-        <p data-reveal style="--d:1">These are the same rules my open-source invoice-checker runs on every invoice. The AI only copies the numbers; plain code does the math, so a wrong total can't slip through.</p>
-        <ul class="repos" data-reveal style="--d:2">
-          <li><a href="https://github.com/ocampolouiseashley-jpg/invoice-checker" rel="noopener"><b>invoice-checker</b><span>Claude reads invoice PDFs; Python rules flag the ones to review.</span></a></li>
-          <li><a href="https://github.com/ocampolouiseashley-jpg/packet-builder" rel="noopener"><b>packet-builder</b><span>A spreadsheet and a Word template become print-ready PDF packets.</span></a></li>
-        </ul>
+      <div class="pb-group pb-settings">
+        <label class="pb-field"><span>Letter pages</span>
+          <span class="stepper"><button type="button" data-step="letter" data-dir="-1" aria-label="Fewer letter pages">−</button><output id="pb-letter">3</output><button type="button" data-step="letter" data-dir="1" aria-label="More letter pages">+</button></span></label>
+        <label class="pb-field"><span>Attachment pages</span>
+          <span class="stepper"><button type="button" data-step="attach" data-dir="-1" aria-label="Fewer attachment pages">−</button><output id="pb-attach">1</output><button type="button" data-step="attach" data-dir="1" aria-label="More attachment pages">+</button></span></label>
+        <label class="pb-field" for="pb-after"><span>Insert attachment</span>
+          <select id="pb-after"></select></label>
+        <label class="pb-field pb-switch" for="pb-duplex"><span>Double-sided</span>
+          <input type="checkbox" id="pb-duplex" checked role="switch"><span class="knob" aria-hidden="true"></span></label>
       </div>
+    </div>
+    <div class="pb-output">
+      <div class="pb-packets" id="pb-packets" aria-live="polite" data-ui></div>
+      <p class="pb-total" id="pb-total"></p>
+      <p class="pb-legend"><span class="pg pg-l"></span>Letter <span class="pg pg-a"></span>Statement <span class="pg pg-b"></span>Blank, so the next part starts on a new sheet</p>
+      <ul class="repos">
+        <li><a href="https://github.com/ocampolouiseashley-jpg/packet-builder" rel="noopener"><b>packet-builder</b><span>A spreadsheet and a Word template become print-ready PDF packets.</span></a></li>
+        <li><a href="https://github.com/ocampolouiseashley-jpg/invoice-checker" rel="noopener"><b>invoice-checker</b><span>Claude reads invoice PDFs; Python rules flag the ones to review.</span></a></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -533,23 +592,20 @@ a { color: inherit; }
     <p class="growth-note" data-reveal style="--d:3">These are examples of the systems I can build, not a claim that every capability listed has already been deployed for a client.</p>
     <a class="btn growth-btn" href="#contact" data-reveal style="--d:4">Tell me what's slowing you down</a>
   </div>
-  <div class="cap-groups">
-    <div class="cap-group" data-reveal style="--d:0">
-      <h3>CRM pipelines and lead management</h3>
-      <ul><li>Build pipelines around the actual sales process.</li><li>Organize leads by stage, source, owner and status.</li><li>Automate lead assignment, task creation and internal notifications.</li><li>Identify stalled opportunities and overdue follow-ups.</li><li>Track pipeline activity and conversion points.</li></ul>
+  <div class="switcher" data-reveal style="--d:1">
+    <div class="sw-list" role="tablist" aria-label="Business systems I build">
+      <button type="button" class="sw-tab" role="tab" id="sw-tab-0" aria-controls="sw-panel" aria-selected="true" data-i="0"><span class="sw-title">CRM pipelines and lead management</span><span class="sw-sum">Pipelines that follow how you actually sell.</span></button>
+      <button type="button" class="sw-tab" role="tab" id="sw-tab-1" aria-controls="sw-panel" aria-selected="false" data-i="1"><span class="sw-title">GoHighLevel workflows</span><span class="sw-sum">Follow-ups that start, and stop, at the right moment.</span></button>
+      <button type="button" class="sw-tab" role="tab" id="sw-tab-2" aria-controls="sw-panel" aria-selected="false" data-i="2"><span class="sw-title">Integrations and connected systems</span><span class="sw-sum">The tools you already use, talking to each other.</span></button>
+      <button type="button" class="sw-tab" role="tab" id="sw-tab-3" aria-controls="sw-panel" aria-selected="false" data-i="3"><span class="sw-title">AI agents with human oversight</span><span class="sw-sum">AI does the sorting; people make the calls.</span></button>
     </div>
-    <div class="cap-group" data-reveal style="--d:1">
-      <h3>GoHighLevel workflows</h3>
-      <ul><li>Automate responses to incoming inquiries.</li><li>Create appointment confirmations and reminders.</li><li>Build follow-up sequences based on customer actions.</li><li>Stop sequences when a lead replies, books or opts out.</li><li>Trigger internal alerts when a person needs to step in.</li></ul>
+    <div class="sw-panel" id="sw-panel" role="tabpanel" aria-labelledby="sw-tab-0">
+      <div class="sw-content" id="sw-content"><h3>CRM pipelines and lead management</h3><ul><li>Build pipelines around the actual sales process.</li><li>Organize leads by stage, source, owner and status.</li><li>Automate lead assignment, task creation and internal notifications.</li><li>Identify stalled opportunities and overdue follow-ups.</li><li>Track pipeline activity and conversion points.</li></ul></div>
     </div>
-    <div class="cap-group" data-reveal style="--d:2">
-      <h3>Integrations and connected systems</h3>
-      <ul><li>Connect GoHighLevel with external applications and APIs.</li><li>Use Python to validate, transform and process data.</li><li>Orchestrate multi-step workflows in n8n.</li><li>Keep databases, forms and spreadsheets in sync.</li><li>Add error handling, retries and notifications.</li></ul>
-    </div>
-    <div class="cap-group" data-reveal style="--d:3">
-      <h3>AI agents with human oversight</h3>
-      <ul><li>Categorize incoming inquiries and summarize conversations.</li><li>Extract information from documents.</li><li>Prepare draft responses for review.</li><li>Flag missing information and unusual cases.</li><li>Route sensitive or uncertain decisions to a person.</li></ul>
-    </div>
+    <template id="sw-data-0"><h3>CRM pipelines and lead management</h3><ul><li>Build pipelines around the actual sales process.</li><li>Organize leads by stage, source, owner and status.</li><li>Automate lead assignment, task creation and internal notifications.</li><li>Identify stalled opportunities and overdue follow-ups.</li><li>Track pipeline activity and conversion points.</li></ul></template>
+    <template id="sw-data-1"><h3>GoHighLevel workflows</h3><ul><li>Automate responses to incoming inquiries.</li><li>Create appointment confirmations and reminders.</li><li>Build follow-up sequences based on customer actions.</li><li>Stop sequences when a lead replies, books or opts out.</li><li>Trigger internal alerts when a person needs to step in.</li></ul></template>
+    <template id="sw-data-2"><h3>Integrations and connected systems</h3><ul><li>Connect GoHighLevel with external applications and APIs.</li><li>Use Python to validate, transform and process data.</li><li>Orchestrate multi-step workflows in n8n.</li><li>Keep databases, forms and spreadsheets in sync.</li><li>Add error handling, retries and notifications.</li></ul></template>
+    <template id="sw-data-3"><h3>AI agents with human oversight</h3><ul><li>Categorize incoming inquiries and summarize conversations.</li><li>Extract information from documents.</li><li>Prepare draft responses for review.</li><li>Flag missing information and unusual cases.</li><li>Route sensitive or uncertain decisions to a person.</li></ul></template>
   </div>
 </section>
 
@@ -864,66 +920,85 @@ a { color: inherit; }
     targets.forEach((t) => t.classList.add("is-in"));
   }
 
-  // The invoice line checker: the same rules invoice-checker runs, in the browser.
-  const input = document.getElementById("typed");
-  const verdict = document.getElementById("verdict");
-  const reason = document.getElementById("reason");
-  const money = (s) => parseFloat(s.replace(/,/g, ""));
-  const fmt = (n) => n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  const NUM = "(-?[\\d,]*\\.?\\d+)";
-  const MONTHS = { jan:0, feb:1, mar:2, apr:3, may:4, jun:5, jul:6, aug:7, sep:8, oct:9, nov:10, dec:11 };
+  // packet-builder in the browser: same assembly rules as the real tool.
+  const records = [
+    { acct: "ACC-1001", co: "Maple Street Bakery", contact: "Dana Reyes" },
+    { acct: "ACC-1002", co: "Riverbend Auto Repair", contact: "Sam Okafor" },
+    { acct: "ACC-1003", co: "Bright Smile Dental", contact: "" },
+  ];
+  const st = { letter: 3, attach: 1, after: "1", duplex: true };
+  const limits = { letter: [1, 4], attach: [1, 3] };
+  const recBox = document.getElementById("pb-records");
+  const out = document.getElementById("pb-packets");
+  const total = document.getElementById("pb-total");
+  const afterSel = document.getElementById("pb-after");
 
-  function parseDate(s) {
-    s = s.trim();
-    let m = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-    if (m) return new Date(+m[1], +m[2] - 1, +m[3]);
-    m = s.match(/^([a-z]{3})[a-z]*\.?\s+(\d{1,2})(?:,?\s+(\d{4}))?$/i);
-    if (m && m[1].toLowerCase() in MONTHS) return new Date(+(m[3] || 2026), MONTHS[m[1].toLowerCase()], +m[2]);
-    return null;
+  records.forEach((r, i) => {
+    const row = document.createElement("div");
+    row.className = "pb-rec";
+    row.innerHTML = `<b>${r.acct}</b><span class="co">${r.co}</span><label class="lab" for="pb-c${i}">Contact</label><input id="pb-c${i}" value="${r.contact}" placeholder="Missing: type a name" autocomplete="off">`;
+    row.querySelector("input").addEventListener("input", (e) => { r.contact = e.target.value; render(); });
+    recBox.appendChild(row);
+  });
+
+  function fillAfter() {
+    const keep = st.after;
+    afterSel.innerHTML = `<option value="end">At the end</option>` +
+      Array.from({ length: st.letter }, (_, i) => `<option value="${i + 1}">After page ${i + 1}</option>`).join("");
+    afterSel.value = keep === "end" || +keep <= st.letter ? keep : "end";
+    st.after = afterSel.value;
+  }
+  afterSel.addEventListener("change", () => { st.after = afterSel.value; render(); });
+  document.getElementById("pb-duplex").addEventListener("change", (e) => { st.duplex = e.target.checked; render(); });
+  document.querySelectorAll("[data-step]").forEach((b) => b.addEventListener("click", () => {
+    const k = b.dataset.step, [lo, hi] = limits[k];
+    st[k] = Math.min(hi, Math.max(lo, st[k] + +b.dataset.dir));
+    document.getElementById("pb-" + k).textContent = st[k];
+    if (k === "letter") fillAfter();
+    render();
+  }));
+
+  function assemble() {
+    const L = Array.from({ length: st.letter }, (_, i) => ({ t: "l", n: i + 1 }));
+    const A = Array.from({ length: st.attach }, (_, i) => ({ t: "a", n: i + 1 }));
+    const k = st.after === "end" ? L.length : Math.min(+st.after, L.length);
+    const parts = [L.slice(0, k), A, L.slice(k)].filter((p) => p.length);
+    const pages = [];
+    for (const part of parts) {
+      pages.push(...part);
+      if (st.duplex && part.length % 2) pages.push({ t: "b" });
+    }
+    return pages;
   }
 
-  function show(kind, label, text) {
-    const changed = verdict.textContent !== label;
-    verdict.className = "verdict " + kind;
-    if (changed) { void verdict.offsetWidth; verdict.classList.add("pop"); }
-    verdict.textContent = label;
-    reason.textContent = text;
-  }
-
-  function check(raw) {
-    const line = raw.replace(/[×xX*]/g, "×").replace(/\s+/g, " ").trim();
-    let m = line.match(new RegExp("^" + NUM + " ?× ?" + NUM + " ?= ?" + NUM + "$"));
-    if (m) {
-      const want = money(m[1]) * money(m[2]), got = money(m[3]);
-      return Math.abs(want - got) < 0.005
-        ? show("ok", "Checks out", `${m[1]} × ${m[2]} is ${fmt(want)}, and that's what the invoice says.`)
-        : show("flag", "Doesn't add up", `${m[1]} × ${m[2]} is ${fmt(want)}. The invoice says ${fmt(got)}.`);
-    }
-    m = line.match(new RegExp("^" + NUM + " ?\\+ ?" + NUM + " ?= ?" + NUM + "$"));
-    if (m) {
-      const want = money(m[1]) + money(m[2]), got = money(m[3]);
-      return Math.abs(want - got) < 0.005
-        ? show("ok", "Checks out", `Subtotal plus tax is ${fmt(want)}, which matches the total.`)
-        : show("flag", "Doesn't add up", `Subtotal plus tax is ${fmt(want)}. The total says ${fmt(got)}.`);
-    }
-    m = line.match(/issued\s+(.+?),?\s+due\s+(.+)$/i);
-    if (m) {
-      const issued = parseDate(m[1]), due = parseDate(m[2]);
-      if (issued && due) {
-        return due < issued
-          ? show("flag", "Dates don't match", "The due date comes before the invoice date.")
-          : show("ok", "Checks out", "The due date comes after the invoice date.");
+  const label = { l: (p) => "L" + p.n, a: (p) => "S" + p.n, b: () => "" };
+  const prevState = new Map();
+  function render() {
+    const pages = assemble();
+    let built = 0, sheetsTotal = 0;
+    out.innerHTML = records.map((r) => {
+      if (!r.contact.trim()) {
+        return `<article class="packet"><div class="packet-top"><p class="packet-name">${r.co}<small>${r.acct}</small></p><span class="verdict flag" data-k="${r.acct}">Skipped</span></div><p class="skip-reason">Missing value for contact name, so no letter goes out with a blank in it.</p></article>`;
       }
-    }
-    show("none", "Can't read that yet", "Try a line like 12 × 48.00 = 576.00, 100 + 8 = 108, or issued Sep 10, due Oct 10.");
+      built++;
+      const groups = [];
+      const size = st.duplex ? 2 : 1;
+      for (let i = 0; i < pages.length; i += size) groups.push(pages.slice(i, i + size));
+      sheetsTotal += groups.length;
+      let idx = 0;
+      const sheets = groups.map((g) => `<span class="sheet">${g.map((p) => `<span class="pg pg-${p.t}" style="--i:${idx++}" title="${p.t === "l" ? "Letter page " + p.n : p.t === "a" ? "Statement page " + p.n : "Blank page"}">${label[p.t](p)}</span>`).join("")}</span>`).join("");
+      return `<article class="packet"><div class="packet-top"><p class="packet-name">${r.co}<small>${r.acct}</small></p><span class="verdict ok" data-k="${r.acct}">Ready · ${pages.length} pages</span></div><div class="sheets" aria-label="${pages.length} pages">${sheets}</div></article>`;
+    }).join("");
+    out.querySelectorAll(".verdict").forEach((v) => {
+      if (prevState.get(v.dataset.k) !== v.textContent) { v.classList.add("pop"); prevState.set(v.dataset.k, v.textContent); }
+    });
+    const pagesTotal = built * pages.length;
+    total.textContent = built
+      ? `Print batch: ${built} packet${built > 1 ? "s" : ""}, ${pagesTotal} pages on ${sheetsTotal} sheet${sheetsTotal > 1 ? "s" : ""}${st.duplex ? ", double-sided" : ""}.`
+      : "Nothing to print: every row is missing something.";
   }
-
-  input.addEventListener("input", () => check(input.value));
-  document.querySelectorAll("[data-example]").forEach((b) =>
-    b.addEventListener("click", () => { input.value = b.dataset.example; check(input.value); input.focus(); })
-  );
-  check(input.value);
-
+  fillAfter();
+  render();
 
   // The teleprinter loop plays only while on screen, and never under reduced motion.
   const clip = document.querySelector(".clip video");
@@ -945,6 +1020,26 @@ a { color: inherit; }
       keyName.textContent = k.dataset.name;
       keyName.animate?.([{ opacity: 0, transform: "translateY(12px)" }, { opacity: 1, transform: "none" }], { duration: 320, easing: "cubic-bezier(.16,1,.3,1)" });
       keyUse.textContent = k.dataset.use;
+    });
+  });
+
+  // Business systems switcher: tabs with arrow-key support, content rises in on change.
+  const swTabs = [...document.querySelectorAll(".sw-tab")];
+  const swContent = document.getElementById("sw-content");
+  const swPanel = document.getElementById("sw-panel");
+  function swSelect(i, focus) {
+    swTabs.forEach((t, j) => { t.setAttribute("aria-selected", j === i ? "true" : "false"); t.tabIndex = j === i ? 0 : -1; });
+    swPanel.setAttribute("aria-labelledby", "sw-tab-" + i);
+    swContent.innerHTML = document.getElementById("sw-data-" + i).innerHTML;
+    swContent.classList.remove("swap"); void swContent.offsetWidth; swContent.classList.add("swap");
+    if (focus) swTabs[i].focus();
+  }
+  swTabs.forEach((t, i) => {
+    t.tabIndex = i === 0 ? 0 : -1;
+    t.addEventListener("click", () => swSelect(i));
+    t.addEventListener("keydown", (e) => {
+      const d = e.key === "ArrowDown" || e.key === "ArrowRight" ? 1 : e.key === "ArrowUp" || e.key === "ArrowLeft" ? -1 : 0;
+      if (d) { e.preventDefault(); swSelect((i + d + swTabs.length) % swTabs.length, true); }
     });
   });
 
