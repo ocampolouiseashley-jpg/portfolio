@@ -212,6 +212,14 @@ a { color: inherit; }
 .creative-title { grid-column: 1 / 13; font-size: var(--step-display); margin: 0 0 24px; line-height: 0.86; }
 .creative-intro { grid-column: 7 / 13; }
 .creative-intro p { margin: 0 0 14px; max-width: 52ch; }
+.wall { grid-column: 1 / 13; display: grid; gap: 8px; margin-top: 64px; }
+.wall-row { display: flex; gap: 8px; }
+.wall-row.tall { height: clamp(260px, 26vw, 400px); }
+.wall-row.mid { height: clamp(200px, 21vw, 320px); }
+.wall figure { flex: var(--r) 1 0; margin: 0; min-width: 0; position: relative; overflow: hidden; }
+.wall img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
+.wall figure:hover img { transform: scale(1.04); }
+.wall figcaption { position: absolute; left: 0; bottom: 0; padding: 6px 10px; background: var(--black); color: var(--white); font-size: var(--step-small); }
 .crafts { grid-column: 1 / 13; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 64px; }
 .craft { padding: 24px; background: var(--surface); }
 .craft:nth-child(2) { margin-top: 48px; background: var(--accent); }
@@ -226,6 +234,8 @@ a { color: inherit; }
   .craft:nth-child(n) { margin-top: 0; }
 }
 @media (max-width: 760px) {
+  .wall-row, .wall-row.tall, .wall-row.mid { height: auto; display: grid; grid-template-columns: 1fr 1fr; }
+  .wall figure { aspect-ratio: 4 / 5; }
   .creative { padding: 96px var(--margin); grid-template-columns: 1fr; }
   .creative-title { font-size: 19vw; }
   .crafts { grid-template-columns: 1fr; margin-top: 32px; }
@@ -531,7 +541,27 @@ a { color: inherit; }
   <h2 class="display creative-title" id="creative-title" data-reveal>Creative design</h2>
   <div class="creative-intro" data-reveal style="--d:1">
     <p>Before focusing on automation and engineering, I worked across creative design, digital content and client-facing projects. That still shapes my technical work: a system should not only function well but also make sense to the people using it.</p>
-    <p>My goal is to make ideas easier to understand, products easier to navigate, and business communication more effective.</p>
+    <p>My goal is to make ideas easier to understand, products easier to navigate, and business communication more effective. A few pieces are below.</p>
+  </div>
+  <div class="wall" aria-label="Selected design work">
+    <div class="wall-row tall">
+      <figure data-reveal style="--r:0.800; --d:0"><img src="assets/work/choreo-class.jpg" width="800" height="1000" alt="Dance class poster with a repeated name set in red and a figure in black and white." loading="lazy"><figcaption>Choreo class poster</figcaption></figure>
+      <figure data-reveal style="--r:0.883; --d:1"><img src="assets/work/pasta-editorial.jpg" width="883" height="1000" alt="Editorial food layout with the word PASTA set vertically beside plated dishes." loading="lazy"><figcaption>Restaurant editorial</figcaption></figure>
+      <figure data-reveal style="--r:0.800; --d:2"><img src="assets/work/ai-sippy-cup.jpg" width="800" height="1000" alt="AI-generated product visual of a baby sippy cup on a beach." loading="lazy"><figcaption>AI product visual</figcaption></figure>
+      <figure data-reveal style="--r:0.806; --d:3"><img src="assets/work/streetwear-post.jpg" width="806" height="1000" alt="Streetwear social post: a cyclist in an orange beanie under the title Ristretto Shirt." loading="lazy"><figcaption>Streetwear post</figcaption></figure>
+    </div>
+    <div class="wall-row mid">
+      <figure data-reveal style="--r:1.381; --d:0"><img src="assets/work/landing-ui.jpg" width="1000" height="724" alt="Dark landing page design for an infrastructure software product." loading="lazy"><figcaption>Landing page UI</figcaption></figure>
+      <figure data-reveal style="--r:1.000; --d:1"><img src="assets/work/amazon-bundle.jpg" width="1000" height="1000" alt="Amazon A+ module showing a folded bedding bundle with labelled parts." loading="lazy"><figcaption>Amazon A+ module</figcaption></figure>
+      <figure data-reveal style="--r:1.000; --d:2"><img src="assets/work/brand-identity.jpg" width="1000" height="1000" alt="Brand identity sheet with cactus logos, a wordmark and a colour palette." loading="lazy"><figcaption>Brand identity</figcaption></figure>
+    </div>
+    <div class="wall-row tall">
+      <figure data-reveal style="--r:0.800; --d:3"><img src="assets/work/event-poster.jpg" width="800" height="1000" alt="Black and pink collage poster with distressed type." loading="lazy"><figcaption>Event poster</figcaption></figure>
+      <figure data-reveal style="--r:0.800; --d:0"><img src="assets/work/skincare-ad.jpg" width="800" height="1000" alt="Skincare ad with a sunscreen tube and cream texture." loading="lazy"><figcaption>Skincare ad</figcaption></figure>
+      <figure data-reveal style="--r:0.800; --d:1"><img src="assets/work/agri-product.jpg" width="800" height="1000" alt="Product launch ad for a fungicide box among grapes." loading="lazy"><figcaption>Product launch ad</figcaption></figure>
+      <figure data-reveal style="--r:0.562; --d:2"><img src="assets/work/amazon-story.jpg" width="562" height="1000" alt="Vertical Amazon story frame of a woman reading in bed." loading="lazy"><figcaption>Amazon story</figcaption></figure>
+      <figure data-reveal style="--r:0.800; --d:3"><img src="assets/work/fintech-ad.jpg" width="800" height="1000" alt="Fintech ad comparing saving and investing with a banknote." loading="lazy"><figcaption>Fintech ad</figcaption></figure>
+    </div>
   </div>
   <div class="crafts">
     <div class="craft" data-reveal style="--d:0">
