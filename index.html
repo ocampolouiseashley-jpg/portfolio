@@ -30,8 +30,9 @@
   --steel-dark: #6f7883;
   --ice: #c8d4e0;
   --black: #0a0b0d;
-  --accent: #b48a9e;      /* dusty plum, on dark */
+  --accent: #c294ab;      /* dusty plum, on dark */
   --accent-deep: #6e3a54; /* burgundy, on paper and steel */
+  --accent-tape: rgba(194, 148, 171, 0.55);
 
   --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
   --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
@@ -60,7 +61,7 @@ a { color: inherit; }
   background: var(--paper); color: var(--paper-ink); font: 500 var(--step-body)/1 var(--sans);
   text-decoration: none; border: 0; border-radius: 999px; cursor: pointer;
 }
-.btn:hover { background: #ffffff; }
+.btn:hover { background: var(--accent); }
 .btn:active { transform: scale(0.97); }
 
 /* ---------- Hero: a scroll scene. The headline steps back, the taped note comes forward. ---------- */
@@ -80,6 +81,7 @@ a { color: inherit; }
   transform: translateY(calc(var(--p) * -60px)) scale(calc(1 - var(--p) * 0.16)); opacity: calc(1 - var(--p) * 3.4);
 }
 .hero h1 span { display: block; background: #c9ced5 url("assets/steel.jpg") center / 120% auto; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; } /* taste-skill-ignore: owner asked for chrome type; the fill is a real brushed-metal photograph, not a gradient */
+.hero h1 .amp { font-style: italic; -webkit-text-fill-color: var(--accent); color: var(--accent); }
 .note {
   position: absolute; top: 52svh; left: 74%; width: clamp(200px, 19vw, 270px); aspect-ratio: 1;
   background: var(--paper); color: var(--paper-ink); padding: 28px 28px 22px; display: flex; flex-direction: column; justify-content: center;
@@ -87,7 +89,7 @@ a { color: inherit; }
 }
 .note-text { font-family: var(--hand); font-weight: 600; font-size: clamp(2.6rem, 3.8vw, 3.5rem); line-height: 0.9; margin: 0; }
 .note-sign { font-family: var(--hand); font-weight: 500; font-size: 1.4rem; margin: 18px 0 0; align-self: flex-end; color: var(--accent-deep); }
-.tape { position: absolute; height: 34px; width: 46%; background: rgba(200, 210, 222, 0.5); }
+.tape { position: absolute; height: 34px; width: 46%; background: var(--accent-tape); }
 .note .tape-l { top: -16px; left: -14%; transform: rotate(-4deg); clip-path: polygon(0 8%, 100% 0, 98% 92%, 3% 100%); }
 .note .tape-r { top: -18px; right: -12%; transform: rotate(3deg); clip-path: polygon(2% 0, 100% 10%, 100% 100%, 0 90%); }
 .hero-foot { position: absolute; bottom: 40px; left: var(--margin); max-width: 46ch; text-align: left; opacity: calc(1 - var(--p) * 2); }
@@ -288,7 +290,7 @@ a { color: inherit; }
 }
 .k-code { --face: #e7eaee; --side: #9aa1aa; --label: #0d0f12; }
 .k-infra { --face: #2a2f36; --side: #0a0b0d; --label: #e7eaee; }
-.k-ai { --face: #c8d4e0; --side: #7f8fa0; --label: #0d0f12; }
+.k-ai { --face: #d9c2cd; --side: #8f6b7d; --label: #0d0f12; }
 .k-auto { --face: #6f7883; --side: #3d434b; --label: #0a0b0d; }
 .k-design { --face: #15171b; --side: #000000; --label: var(--accent); }
 .key {
@@ -325,7 +327,7 @@ a { color: inherit; }
 .slip dt { flex: 0 1 auto; }
 .slip .dots { flex: 1 1 24px; height: 4px; align-self: center; background-image: radial-gradient(circle, currentColor 1.4px, transparent 1.8px); background-size: 10px 4px; background-repeat: repeat-x; opacity: .6; } /* taste-skill-ignore: dotted leader, not a gradient fill */
 .slip dd { margin: 0; flex: 0 0 auto; font-weight: 500; }
-.slip .total { margin: 26px -30px 0; min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 30px; background: var(--paper-ink); color: var(--paper); font-weight: 600; }
+.slip .total { margin: 26px -30px 0; min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 30px; background: var(--accent-deep); color: var(--paper); font-weight: 600; }
 .progress { display: flex; gap: 6px; margin-top: 18px; }
 .progress span { flex: 1; height: 4px; border-radius: 2px; background: #b9c0c9; }
 .progress span.on { background: var(--accent-deep); }
@@ -350,8 +352,8 @@ a { color: inherit; }
 .field input { width: 100%; height: 64px; border: 0; border-radius: 999px; background: var(--paper); color: var(--paper-ink); font: 400 var(--step-body)/1 var(--sans); padding: 0 66px 0 24px; }
 .field input::placeholder { color: var(--paper-muted); }
 .field input:focus { outline: 2px solid var(--steel); outline-offset: 3px; }
-.field button { position: absolute; right: 10px; top: 10px; width: 44px; height: 44px; border: 0; border-radius: 999px; background: var(--paper-ink); color: var(--paper); font: 600 var(--step-body)/1 var(--sans); cursor: pointer; }
-.field button:hover { background: #23272d; }
+.field button { position: absolute; right: 10px; top: 10px; width: 44px; height: 44px; border: 0; border-radius: 999px; background: var(--accent-deep); color: var(--paper); font: 600 var(--step-body)/1 var(--sans); cursor: pointer; }
+.field button:hover { background: var(--paper-ink); }
 .field button:active { transform: scale(0.94); }
 .field-note { margin: 16px 0 0; font-size: var(--step-small); color: var(--muted); }
 .ways { margin: 72px 0 0; display: grid; grid-template-columns: 120px 1fr; gap: 12px 20px; }
@@ -364,8 +366,8 @@ a { color: inherit; }
 .foot-top { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
 .foot-invite { grid-column: 1 / 8; }
 .foot-invite h2 { font-size: var(--step-head); margin-bottom: 28px; }
-.foot-invite .btn { background: var(--paper-ink); color: var(--paper); }
-.foot-invite .btn:hover { background: #23272d; }
+.foot-invite .btn { background: var(--accent-deep); color: var(--paper); }
+.foot-invite .btn:hover { background: var(--paper-ink); }
 .foot-links { grid-column: 10 / 13; list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; align-content: start; }
 .foot-links a { text-underline-offset: 4px; font-weight: 500; }
 .credits { margin-top: auto; padding-bottom: 12px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; font-size: var(--step-small); position: relative; z-index: 1; color: var(--paper-muted); }
@@ -477,7 +479,7 @@ a { color: inherit; }
         <a class="btn" href="#contact">Get in touch</a>
       </nav>
     </div>
-    <h1 class="display"><span>AI engineer</span><span>&amp; designer.</span></h1>
+    <h1 class="display"><span>AI engineer</span><span><em class="amp">&amp;</em> designer.</span></h1>
     <div class="note" role="img" aria-label="A paper note taped to the page, handwritten: I build, I design. Signed Louise Ashley.">
       <span class="tape tape-l" aria-hidden="true"></span><span class="tape tape-r" aria-hidden="true"></span>
       <p class="note-text" aria-hidden="true">I build.<br>I design!</p>
@@ -496,8 +498,8 @@ a { color: inherit; }
   <div class="work-head">
     <h2 class="display" id="work-title" data-reveal>Legal operations</h2>
     <div class="work-intro" data-reveal style="--d:1">
-      <p>Four systems for a U.S. collections law firm. Less copy-paste, fewer mistakes, faster team.</p>
-      <p>The code is the client's, so these are overviews. Happy to walk you through them on a call.</p>
+      <p>Four systems for a U.S. law firm. Less copy-paste, fewer mistakes.</p>
+      <p>Client code, so overviews only. Happy to walk you through them.</p>
       <p class="focus"><b>Focus</b> · document extraction · research agents · quality checks · Python and n8n · testing</p>
     </div>
   </div>
@@ -507,8 +509,8 @@ a { color: inherit; }
     <div class="folder-body">
       <figure><img src="assets/ledger.jpg" width="1600" height="1096" alt="A handwritten bank ledger page from a 1903 bookkeeping manual, columns of deposits by date." loading="lazy"><figcaption>Bank ledger, 1903</figcaption></figure>
       <div class="folder-text">
-        <p class="before">Staff typed every bank statement into a spreadsheet, line by line.</p>
-        <p>Now Python reads each statement, n8n applies the firm's rules, and the team approves payers on one review page. About 400 tests and nightly backups.</p>
+        <p class="before">Staff typed every bank statement by hand.</p>
+        <p>Now Python reads them and the team just approves. 400 tests, nightly backups.</p>
         <a href="#contact">Ask me how it works</a>
       </div>
     </div>
@@ -519,8 +521,8 @@ a { color: inherit; }
     <div class="folder-body">
       <figure><img src="assets/catalog.jpg" width="1200" height="1600" alt="A drawer of library catalog cards being thumbed through, one typed card raised." loading="lazy"><figcaption>Card catalog</figcaption></figure>
       <div class="folder-text">
-        <p class="before">About 500 companies needed an official address for legal papers, one search at a time.</p>
-        <p>Free government data first, then an AI agent with web search. Every answer shows its source and a person approves it. Pilot: 21 of 24 found.</p>
+        <p class="before">500 company addresses, one search at a time.</p>
+        <p>Now an AI agent finds them, with sources. A person approves each. 21 of 24 in the pilot.</p>
         <a href="#contact">Ask me how it works</a>
       </div>
     </div>
@@ -531,20 +533,20 @@ a { color: inherit; }
     <div class="folder-body">
       <figure><img src="assets/collection-card.jpg" width="1600" height="941" alt="A 1913 collection account card with handwritten notes on promises to pay." loading="lazy"><figcaption>Collection account card, 1913</figcaption></figure>
       <div class="folder-text">
-        <p class="before">Every notice meant finding the case, checking the tax ID and copying it all into a template.</p>
-        <p>Co-built with a teammate: each payer is screened, matched to its case and drafted as a Doc and PDF for an attorney to review. Nothing sends itself.</p>
+        <p class="before">Every notice was copied into a template by hand.</p>
+        <p>Now each one is matched and drafted for an attorney to check. Co-built with a teammate.</p>
         <a href="#contact">Ask me how it works</a>
       </div>
     </div>
   </article>
 
-  <article class="folder" style="--n:3; --fa:var(--accent); --fb:var(--surface); --fi:var(--paper); --tb:var(--paper); --ti:var(--paper-ink)">
+  <article class="folder" style="--n:3; --fa:var(--accent); --fb:var(--surface); --fi:var(--paper); --tb:var(--accent); --ti:var(--paper-ink)">
     <div class="folder-strip"><h3 class="tab">PDF tools for the team</h3><span class="kind">In daily use</span></div>
     <div class="folder-body">
       <figure><img src="assets/mimeograph.jpg" width="1267" height="1600" alt="A 1919 advertisement for the Edison-Dick Mimeograph, a machine for duplicating letters." loading="lazy"><figcaption>Mimeograph advertisement, 1919</figcaption></figure>
       <div class="folder-text">
-        <p class="before">Court packets needed a desktop app on every computer.</p>
-        <p>Now it runs in the browser: pages in the right order, ready for double-sided printing, and shrunk under the court's upload limit.</p>
+        <p class="before">Court packets needed an app on every computer.</p>
+        <p>Now it runs in the browser, print-ready and under the court's size limit.</p>
         <a href="#contact">Ask me how it works</a>
       </div>
     </div>
@@ -554,7 +556,7 @@ a { color: inherit; }
 <section class="tryit" id="try" aria-labelledby="try-title">
   <div class="try-head">
     <h2 class="display" id="try-title" data-reveal>Spreadsheet in, packets out.</h2>
-    <p data-reveal style="--d:1">One of my open-source tools, live. Change a setting and watch the packets rebuild.</p>
+    <p data-reveal style="--d:1">One of my open-source tools. Try it.</p>
   </div>
   <div class="pb" data-reveal style="--d:2">
     <div class="pb-controls" data-ui>
@@ -576,10 +578,10 @@ a { color: inherit; }
     <div class="pb-output">
       <div class="pb-packets" id="pb-packets" aria-live="polite" data-ui></div>
       <p class="pb-total" id="pb-total"></p>
-      <p class="pb-legend"><span class="pg pg-l"></span>Letter <span class="pg pg-a"></span>Statement <span class="pg pg-b"></span>Blank, so the next part starts on a new sheet</p>
+      <p class="pb-legend"><span class="pg pg-l"></span>Letter <span class="pg pg-a"></span>Statement <span class="pg pg-b"></span>Blank</p>
       <ul class="repos">
-        <li><a href="https://github.com/ocampolouiseashley-jpg/packet-builder" rel="noopener"><b>packet-builder</b><span>A spreadsheet and a Word template become print-ready PDF packets.</span></a></li>
-        <li><a href="https://github.com/ocampolouiseashley-jpg/invoice-checker" rel="noopener"><b>invoice-checker</b><span>Claude reads invoice PDFs; Python rules flag the ones to review.</span></a></li>
+        <li><a href="https://github.com/ocampolouiseashley-jpg/packet-builder" rel="noopener"><b>packet-builder</b><span>Spreadsheet in, PDF packets out.</span></a></li>
+        <li><a href="https://github.com/ocampolouiseashley-jpg/invoice-checker" rel="noopener"><b>invoice-checker</b><span>AI reads invoices and flags the odd ones.</span></a></li>
       </ul>
     </div>
   </div>
@@ -590,32 +592,31 @@ a { color: inherit; }
 <section class="growth" id="growth" aria-labelledby="growth-title">
   <div class="growth-intro">
     <h2 class="growth-title display" id="growth-title" data-reveal>Business systems</h2>
-    <p data-reveal style="--d:1">Since 2025: GoHighLevel, CRM and n8n automations for a U.S. real estate and adjudication business.</p>
-    <p data-reveal style="--d:2">I connect the tools you already use and cut the manual work.</p>
-    <p class="growth-note" data-reveal style="--d:3">Examples of what I can build, not a list of past client work.</p>
-    <a class="btn growth-btn" href="#contact" data-reveal style="--d:4">Tell me what's slowing you down</a>
+    <p data-reveal style="--d:1">I connect the tools you already use and cut the manual work.</p>
+    <p class="growth-note" data-reveal style="--d:3">Examples of what I can build.</p>
+    <a class="btn growth-btn" href="#contact" data-reveal style="--d:4">Let's talk</a>
   </div>
   <div class="switcher" data-reveal style="--d:1">
     <div class="sw-list" role="tablist" aria-label="Business systems I build">
-      <button type="button" class="sw-tab" role="tab" id="sw-tab-0" aria-controls="sw-panel" aria-selected="true" data-i="0"><span class="sw-title">CRM pipelines and lead management</span><span class="sw-sum">Pipelines that match how you sell.</span></button>
-      <button type="button" class="sw-tab" role="tab" id="sw-tab-1" aria-controls="sw-panel" aria-selected="false" data-i="1"><span class="sw-title">GoHighLevel workflows</span><span class="sw-sum">Follow-ups that start and stop on time.</span></button>
-      <button type="button" class="sw-tab" role="tab" id="sw-tab-2" aria-controls="sw-panel" aria-selected="false" data-i="2"><span class="sw-title">Integrations and connected systems</span><span class="sw-sum">Your tools, talking to each other.</span></button>
-      <button type="button" class="sw-tab" role="tab" id="sw-tab-3" aria-controls="sw-panel" aria-selected="false" data-i="3"><span class="sw-title">AI agents with human oversight</span><span class="sw-sum">AI does the sorting; people make the calls.</span></button>
+      <button type="button" class="sw-tab" role="tab" id="sw-tab-0" aria-controls="sw-panel" aria-selected="true" data-i="0"><span class="sw-title">CRM pipelines</span><span class="sw-sum">Leads that never slip.</span></button>
+      <button type="button" class="sw-tab" role="tab" id="sw-tab-1" aria-controls="sw-panel" aria-selected="false" data-i="1"><span class="sw-title">GoHighLevel</span><span class="sw-sum">Follow-ups on autopilot.</span></button>
+      <button type="button" class="sw-tab" role="tab" id="sw-tab-2" aria-controls="sw-panel" aria-selected="false" data-i="2"><span class="sw-title">Integrations</span><span class="sw-sum">Your tools, talking.</span></button>
+      <button type="button" class="sw-tab" role="tab" id="sw-tab-3" aria-controls="sw-panel" aria-selected="false" data-i="3"><span class="sw-title">AI agents</span><span class="sw-sum">AI sorts. People decide.</span></button>
     </div>
     <div class="sw-panel" id="sw-panel" role="tabpanel" aria-labelledby="sw-tab-0">
-      <div class="sw-content" id="sw-content"><h3>CRM pipelines and lead management</h3><ul><li>Pipelines built around how you sell.</li><li>Leads sorted by stage, source and owner.</li><li>Auto-assign leads and create tasks.</li><li>Flag stalled deals and late follow-ups.</li></ul></div>
+      <div class="sw-content" id="sw-content"><h3>CRM pipelines</h3><ul><li>Built around how you sell.</li><li>Leads assigned automatically.</li><li>Stalled deals flagged.</li></ul></div>
     </div>
-    <template id="sw-data-0"><h3>CRM pipelines and lead management</h3><ul><li>Pipelines built around how you sell.</li><li>Leads sorted by stage, source and owner.</li><li>Auto-assign leads and create tasks.</li><li>Flag stalled deals and late follow-ups.</li></ul></template>
-    <template id="sw-data-1"><h3>GoHighLevel workflows</h3><ul><li>Instant replies to new inquiries.</li><li>Booking confirmations and reminders.</li><li>Follow-ups that stop when a lead replies.</li><li>Alerts when a person needs to step in.</li></ul></template>
-    <template id="sw-data-2"><h3>Integrations and connected systems</h3><ul><li>GoHighLevel linked to your other apps.</li><li>Python to clean and check data.</li><li>Forms, sheets and databases in sync.</li><li>Retries and alerts when something fails.</li></ul></template>
-    <template id="sw-data-3"><h3>AI agents with human oversight</h3><ul><li>Sort inquiries and summarize chats.</li><li>Pull details out of documents.</li><li>Draft replies for review.</li><li>Send tricky cases to a person.</li></ul></template>
+    <template id="sw-data-0"><h3>CRM pipelines</h3><ul><li>Built around how you sell.</li><li>Leads assigned automatically.</li><li>Stalled deals flagged.</li></ul></template>
+    <template id="sw-data-1"><h3>GoHighLevel</h3><ul><li>Instant replies to inquiries.</li><li>Booking reminders.</li><li>Follow-ups that stop on reply.</li></ul></template>
+    <template id="sw-data-2"><h3>Integrations</h3><ul><li>Your apps, connected.</li><li>Sheets and forms in sync.</li><li>Alerts when something breaks.</li></ul></template>
+    <template id="sw-data-3"><h3>AI agents</h3><ul><li>Sort and summarize inquiries.</li><li>Draft replies for review.</li><li>Hard calls go to a person.</li></ul></template>
   </div>
 </section>
 
 <section class="creative" id="creative" aria-labelledby="creative-title">
   <h2 class="display creative-title" id="creative-title" data-reveal>Creative design</h2>
   <div class="creative-intro" data-reveal style="--d:1">
-    <p>Design came first for me. It's why my systems make sense to the people using them.</p>
+    <p>Design came first. It's why my systems feel easy.</p>
   </div>
   <div class="wall" aria-label="Selected design work">
     <div class="wall-row tall">
@@ -639,13 +640,13 @@ a { color: inherit; }
   <div class="campaigns">
     <div class="campaigns-head" data-reveal>
       <h3>Concept campaigns</h3>
-      <p>Four campaigns for made-up brands: art direction, AI imagery, copy and a landing page each.</p>
+      <p>Four made-up brands, start to finish.</p>
     </div>
     <article class="campaign" data-reveal style="--d:0">
       <div class="campaign-text">
         <h4>Morrow</h4>
         <p class="campaign-line">A little green time.</p>
-        <p>Matcha for a café, launch post to landing page.</p>
+        <p>Matcha for a café.</p>
       </div>
       <div class="strip" aria-label="Morrow campaign images">
           <figure><img src="assets/campaigns/morrow-01-launch.jpg" width="720" height="720" alt="Iced matcha latte on a stone ledge in morning light." loading="lazy"></figure>
@@ -658,7 +659,7 @@ a { color: inherit; }
       <div class="campaign-text">
         <h4>Avelune</h4>
         <p class="campaign-line">The quiet ritual.</p>
-        <p>Skincare told through texture and ritual.</p>
+        <p>Skincare, slow and soft.</p>
       </div>
       <div class="strip" aria-label="Avelune campaign images">
           <figure><img src="assets/campaigns/avelune-01-launch.jpg" width="720" height="900" alt="A white serum bottle on travertine with draped linen." loading="lazy"></figure>
@@ -671,7 +672,7 @@ a { color: inherit; }
       <div class="campaign-text">
         <h4>Serein</h4>
         <p class="campaign-line">Somewhere, slower.</p>
-        <p>A coastal retreat, from setting to stay.</p>
+        <p>A coastal retreat.</p>
       </div>
       <div class="strip" aria-label="Serein campaign images">
           <figure><img src="assets/campaigns/serein-01-launch.jpg" width="720" height="900" alt="An infinity pool above the sea at sunset." loading="lazy"></figure>
@@ -684,7 +685,7 @@ a { color: inherit; }
       <div class="campaign-text">
         <h4>Still House</h4>
         <p class="campaign-line">Room to live.</p>
-        <p>Furniture and home objects, made to be lived with.</p>
+        <p>Furniture and home.</p>
       </div>
       <div class="strip" aria-label="Still House campaign images">
           <figure><img src="assets/campaigns/still-house-01-launch.jpg" width="720" height="900" alt="A warm living room with a curved sofa and a sea view." loading="lazy"></figure>
@@ -808,14 +809,14 @@ a { color: inherit; }
 </section>
 
 <section class="about" id="about" aria-label="About Louise Ashley Ocampo">
-  <p data-reveal>I'm an <span class="mark m2">AI automation engineer</span> and <span class="mark m3">designer</span> in <span class="mark m1">Angeles City, Philippines</span>, working remotely. I built four systems for a <span class="mark m1">U.S. collections law firm</span> and run <span class="mark m2">CRM automation</span> for a U.S. real estate business. I like fixing what businesses accept as normal: repeat tasks, disconnected tools, data typed twice. <a class="mark m1" href="#contact">I don't just build automations. I build business solutions.</a></p>
+  <p data-reveal><span class="mark m2">AI automation engineer</span> and <span class="mark m3">designer</span> in <span class="mark m1">Angeles City, Philippines</span>. I fix what businesses accept as normal: repeat tasks, scattered tools, data typed twice. <a class="mark m1" href="#contact">I don't just build automations. I build business solutions.</a></p>
 </section>
 
 <section class="contact" id="contact" aria-labelledby="contact-title">
   <div class="contact-inner">
     <h2 id="contact-title" data-reveal>Tell me about it.</h2>
     <p class="contact-q" data-reveal>What's slowing your team down?</p>
-    <p class="contact-sub" data-reveal>Open to remote roles, automation projects and creative work.</p>
+    <p class="contact-sub" data-reveal>Open to remote roles and projects.</p>
     <form class="field" id="note-form" action="mailto:ocampolouiseashley@gmail.com" method="post" enctype="text/plain" data-reveal style="--d:1">
       <label for="note" class="sr" style="position:absolute;left:-9999px">Your note</label>
       <input id="note" name="note" type="text" placeholder="Leads from three forms into one CRM" autocomplete="off">
@@ -980,7 +981,7 @@ a { color: inherit; }
     let built = 0, sheetsTotal = 0;
     out.innerHTML = records.map((r) => {
       if (!r.contact.trim()) {
-        return `<article class="packet"><div class="packet-top"><p class="packet-name">${r.co}<small>${r.acct}</small></p><span class="verdict flag" data-k="${r.acct}">Skipped</span></div><p class="skip-reason">Missing value for contact name, so no letter goes out with a blank in it.</p></article>`;
+        return `<article class="packet"><div class="packet-top"><p class="packet-name">${r.co}<small>${r.acct}</small></p><span class="verdict flag" data-k="${r.acct}">Skipped</span></div><p class="skip-reason">No contact name, so it's skipped.</p></article>`;
       }
       built++;
       const groups = [];
