@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Louise Ashley Ocampo · AI Automation Engineer &amp; Designer</title>
-<meta name="description" content="Louise Ashley Ocampo builds intelligent systems, improves business operations and creates digital experiences: AI agents, workflow automation, CRM systems and visual design.">
+<meta name="description" content="AI automation engineer and designer. I build systems that take repetitive work off a team's plate.">
 <meta property="og:title" content="Louise Ashley Ocampo · AI Automation Engineer &amp; Designer">
 <meta property="og:description" content="AI automation, business systems and creative design.">
 <meta property="og:type" content="website">
@@ -15,7 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js")</script>
 <style>
-/* Metallic: cool blacks, gunmetal and steel greys, brushed chrome. An expensive serif for display, a plain sans for reading,
+/* Metallic: cool blacks, gunmetal and steel greys, brushed chrome, with one quiet plum accent. An expensive serif for display, a plain sans for reading,
    and one handwritten note. Scroll scenes in the hero and the approach section; a spring-tilted keyboard. */
 :root {
   --bg: #0a0b0d;
@@ -30,6 +30,8 @@
   --steel-dark: #6f7883;
   --ice: #c8d4e0;
   --black: #0a0b0d;
+  --accent: #b48a9e;      /* dusty plum, on dark */
+  --accent-deep: #6e3a54; /* burgundy, on paper and steel */
 
   --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
   --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
@@ -49,8 +51,8 @@ html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: var(--step-body); line-height: 1.5; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; }
-:focus-visible { outline: 2px solid var(--steel); outline-offset: 3px; }
-::selection { background: var(--steel); color: var(--paper-ink); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+::selection { background: var(--accent); color: var(--paper-ink); }
 
 .display { font-family: var(--serif); font-weight: 400; letter-spacing: -0.02em; line-height: 0.9; margin: 0; text-wrap: balance; }
 .btn {
@@ -71,7 +73,7 @@ a { color: inherit; }
 .wordmark { font-family: var(--serif); font-size: var(--step-lead); text-decoration: none; letter-spacing: -0.01em; }
 .bar nav { display: flex; align-items: center; gap: clamp(14px, 2vw, 28px); }
 .bar nav a:not(.btn) { text-decoration: none; color: var(--muted); }
-.bar nav a:not(.btn):hover { color: var(--ink); }
+.bar nav a:not(.btn):hover { color: var(--accent); }
 .bar .btn { min-height: 44px; }
 .hero h1 {
   position: absolute; top: 11svh; left: 0; right: 0; text-align: center; font-size: var(--step-display);
@@ -84,7 +86,7 @@ a { color: inherit; }
   transform: translateX(-50%) translateY(calc(max(0, var(--p) - 0.32) * -34svh)) rotate(calc(-4deg + var(--p) * 4deg)) scale(calc(1 + var(--p) * 0.35));
 }
 .note-text { font-family: var(--hand); font-weight: 600; font-size: clamp(2.6rem, 3.8vw, 3.5rem); line-height: 0.9; margin: 0; }
-.note-sign { font-family: var(--hand); font-weight: 500; font-size: 1.4rem; margin: 18px 0 0; align-self: flex-end; }
+.note-sign { font-family: var(--hand); font-weight: 500; font-size: 1.4rem; margin: 18px 0 0; align-self: flex-end; color: var(--accent-deep); }
 .tape { position: absolute; height: 34px; width: 46%; background: rgba(200, 210, 222, 0.5); }
 .note .tape-l { top: -16px; left: -14%; transform: rotate(-4deg); clip-path: polygon(0 8%, 100% 0, 98% 92%, 3% 100%); }
 .note .tape-r { top: -18px; right: -12%; transform: rotate(3deg); clip-path: polygon(2% 0, 100% 10%, 100% 100%, 0 90%); }
@@ -107,6 +109,7 @@ a { color: inherit; }
 .work-intro { grid-column: 7 / 13; max-width: 62ch; }
 .work-intro p { margin: 0 0 12px; }
 .work-intro .focus { font-size: var(--step-small); color: var(--muted); }
+.work-intro .focus b { color: var(--accent); font-weight: 500; }
 .folder { position: sticky; top: calc(var(--n) * 64px); min-height: calc(92svh + (3 - var(--n)) * 64px); color: var(--fi); background: var(--fb); }
 .folder-strip { height: 64px; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 var(--margin); }
 .tab {
@@ -123,7 +126,7 @@ a { color: inherit; }
 .folder-text { grid-column: 9 / 13; align-self: start; }
 .folder-text p { margin: 0 0 14px; }
 .folder-text .before { font-family: var(--serif); font-size: var(--step-body); line-height: 1.35; }
-.folder-text a { font-weight: 600; text-underline-offset: 4px; }
+.folder-text a { font-weight: 600; text-underline-offset: 4px; color: var(--fa); }
 
 /* ---------- Try it: packet-builder in the browser ---------- */
 .tryit { background: var(--bg); padding: 160px var(--margin) 140px; }
@@ -207,7 +210,7 @@ a { color: inherit; }
 .sw-tab .sw-sum { font: 400 var(--step-small)/1.4 var(--sans); }
 .sw-tab:hover { color: var(--ink); }
 .sw-tab[aria-selected="true"] { background: var(--graphite); color: var(--ink); }
-.sw-tab[aria-selected="true"] .sw-sum { color: var(--ice); }
+.sw-tab[aria-selected="true"] .sw-sum { color: var(--accent); }
 .sw-tab:active { transform: scale(0.99); }
 .sw-panel {
   grid-column: 6 / 13; min-height: 460px; border-radius: 28px; padding: clamp(28px, 4vw, 56px);
@@ -244,7 +247,7 @@ a { color: inherit; }
 .campaigns-head p { grid-column: 7 / 13; margin: 0; max-width: 52ch; }
 .campaign { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: start; }
 .campaign-text h4 { margin: 0 0 4px; font-family: var(--serif); font-weight: 400; font-size: var(--step-lead); }
-.campaign-text .campaign-line { margin: 0 0 10px; font-family: var(--serif); font-style: italic; font-size: var(--step-lead); color: var(--muted); }
+.campaign-text .campaign-line { margin: 0 0 10px; font-family: var(--serif); font-style: italic; font-size: var(--step-lead); color: var(--accent); }
 .campaign-text p { margin: 0; }
 .strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; min-width: 0; }
 .strip figure { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; }
@@ -287,7 +290,7 @@ a { color: inherit; }
 .k-infra { --face: #2a2f36; --side: #0a0b0d; --label: #e7eaee; }
 .k-ai { --face: #c8d4e0; --side: #7f8fa0; --label: #0d0f12; }
 .k-auto { --face: #6f7883; --side: #3d434b; --label: #0a0b0d; }
-.k-design { --face: #15171b; --side: #000000; --label: #b4bbc4; }
+.k-design { --face: #15171b; --side: #000000; --label: var(--accent); }
 .key {
   aspect-ratio: 1; border: 0; border-radius: 14px; cursor: pointer; position: relative; padding: 0;
   background: var(--side); color: var(--label); font: 600 clamp(0.85rem, 1.05vw, 1.1rem)/1 var(--sans);
@@ -325,15 +328,15 @@ a { color: inherit; }
 .slip .total { margin: 26px -30px 0; min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 30px; background: var(--paper-ink); color: var(--paper); font-weight: 600; }
 .progress { display: flex; gap: 6px; margin-top: 18px; }
 .progress span { flex: 1; height: 4px; border-radius: 2px; background: #b9c0c9; }
-.progress span.on { background: var(--paper-ink); }
+.progress span.on { background: var(--accent-deep); }
 
 /* ---------- About ---------- */
 .about { padding: 140px var(--margin) 120px; }
-.about p { margin: 0; columns: 2; column-gap: 32px; font-family: var(--serif); font-size: var(--step-lead); line-height: 1.25; color: var(--ink); }
+.about p { margin: 0; max-width: 34em; font-family: var(--serif); font-size: var(--step-lead); line-height: 1.25; color: var(--ink); }
 .mark { padding: 0 0.12em; border-radius: 0.2em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .m1 { background: var(--paper); color: var(--paper-ink); }
 .m2 { background: var(--steel); color: var(--paper-ink); }
-.m3 { background: var(--ice); color: var(--paper-ink); }
+.m3 { background: var(--accent); color: var(--paper-ink); }
 .about a.mark { text-decoration: none; }
 .about a.mark:hover { background: #ffffff; }
 
@@ -354,7 +357,7 @@ a { color: inherit; }
 .ways { margin: 72px 0 0; display: grid; grid-template-columns: 120px 1fr; gap: 12px 20px; }
 .ways dt { color: var(--muted); }
 .ways dd { margin: 0; }
-.ways a { text-underline-offset: 4px; }
+.ways a { text-underline-offset: 4px; text-decoration-color: var(--accent); }
 
 /* ---------- Footer: paper, the name cropped ---------- */
 .foot { position: relative; min-height: 100svh; overflow: hidden; background: var(--paper); color: var(--paper-ink); padding: 120px var(--margin) 0; display: flex; flex-direction: column; }
@@ -430,7 +433,7 @@ a { color: inherit; }
   .sw-list { grid-template-columns: 1fr; }
   .creative { padding: 96px var(--margin); grid-template-columns: 1fr; }
 
-  .creative-intro { grid-column: 1 / -1; }
+  .creative-title, .creative-intro, .wall, .campaigns, .crafts { grid-column: 1 / -1; }
   .wall-row, .wall-row.tall, .wall-row.mid { height: auto; display: grid; grid-template-columns: 1fr 1fr; }
   .wall figure { aspect-ratio: 4 / 5; }
   .campaigns { margin-top: 72px; }
@@ -481,7 +484,7 @@ a { color: inherit; }
       <p class="note-sign" aria-hidden="true">– Louise Ashley</p>
     </div>
     <div class="hero-foot">
-      <p>I'm Louise Ashley Ocampo. I build intelligent systems, improve business operations and create digital experiences.</p>
+      <p>I build AI systems that take the repetitive work off your team's plate.</p>
       <p class="where">Angeles City, Philippines · Remote · ocampolouiseashley@gmail.com</p>
     </div>
   </div>
@@ -493,55 +496,55 @@ a { color: inherit; }
   <div class="work-head">
     <h2 class="display" id="work-title" data-reveal>Legal operations</h2>
     <div class="work-intro" data-reveal style="--d:1">
-      <p>Four systems built for a U.S. collections law firm, designed to reduce repetitive work, improve data handling and support internal operations: document processing, automated research, quality checks and connected workflows that help teams handle complex, repetitive tasks more consistently.</p>
-      <p>The code belongs to the client, so I present these through system overviews instead of proprietary code. I'm happy to walk through the architecture on a call.</p>
-      <p class="focus"><b>Focus areas:</b> document processing and data extraction · research and verification workflows · automated quality checks · Python applications and workflow orchestration · testing, reliability and operational safeguards</p>
+      <p>Four systems for a U.S. collections law firm. Less copy-paste, fewer mistakes, faster team.</p>
+      <p>The code is the client's, so these are overviews. Happy to walk you through them on a call.</p>
+      <p class="focus"><b>Focus</b> · document extraction · research agents · quality checks · Python and n8n · testing</p>
     </div>
   </div>
 
-  <article class="folder" style="--n:0; --fb:var(--paper); --fi:var(--paper-ink); --tb:var(--black); --ti:var(--paper)">
+  <article class="folder" style="--n:0; --fa:var(--accent-deep); --fb:var(--paper); --fi:var(--paper-ink); --tb:var(--black); --ti:var(--paper)">
     <div class="folder-strip"><h3 class="tab">Bank statement reader</h3><span class="kind">In daily use</span></div>
     <div class="folder-body">
       <figure><img src="assets/ledger.jpg" width="1600" height="1096" alt="A handwritten bank ledger page from a 1903 bookkeeping manual, columns of deposits by date." loading="lazy"><figcaption>Bank ledger, 1903</figcaption></figure>
       <div class="folder-text">
-        <p class="before">Staff read every statement line by line and typed each payer into a spreadsheet, the way bank clerks kept ledgers a century ago.</p>
-        <p>Now a Python reader handles each bank's layout, n8n applies the firm's rules, and a review page lets the team approve, fix or reject each payer. Approved rows reach the case trackers on their own. About 400 tests, nightly backups, and every correction becomes next week's fix.</p>
+        <p class="before">Staff typed every bank statement into a spreadsheet, line by line.</p>
+        <p>Now Python reads each statement, n8n applies the firm's rules, and the team approves payers on one review page. About 400 tests and nightly backups.</p>
         <a href="#contact">Ask me how it works</a>
       </div>
     </div>
   </article>
 
-  <article class="folder" style="--n:1; --fb:var(--steel); --fi:var(--paper-ink); --tb:var(--paper); --ti:var(--paper-ink)">
+  <article class="folder" style="--n:1; --fa:var(--accent-deep); --fb:var(--steel); --fi:var(--paper-ink); --tb:var(--paper); --ti:var(--paper-ink)">
     <div class="folder-strip"><h3 class="tab">Registered agent research</h3><span class="kind">Pilot</span></div>
     <div class="folder-body">
       <figure><img src="assets/catalog.jpg" width="1200" height="1600" alt="A drawer of library catalog cards being thumbed through, one typed card raised." loading="lazy"><figcaption>Card catalog</figcaption></figure>
       <div class="folder-text">
-        <p class="before">The firm needed the official address for legal papers for about 500 companies, found one search at a time.</p>
-        <p>Free government data goes first, then a page reader, then an LLM agent with web search for whatever is left. Every answer carries its source and a quote, a person approves each one, and only a company name and state ever leave the firm. I chose the model by testing four on known answers. Pilot: 21 of 24 found.</p>
+        <p class="before">About 500 companies needed an official address for legal papers, one search at a time.</p>
+        <p>Free government data first, then an AI agent with web search. Every answer shows its source and a person approves it. Pilot: 21 of 24 found.</p>
         <a href="#contact">Ask me how it works</a>
       </div>
     </div>
   </article>
 
-  <article class="folder" style="--n:2; --fb:var(--graphite); --fi:var(--paper); --tb:var(--steel); --ti:var(--paper-ink)">
+  <article class="folder" style="--n:2; --fa:var(--accent); --fb:var(--graphite); --fi:var(--paper); --tb:var(--steel); --ti:var(--paper-ink)">
     <div class="folder-strip"><h3 class="tab">Legal notice builder</h3><span class="kind">Co-built</span></div>
     <div class="folder-body">
       <figure><img src="assets/collection-card.jpg" width="1600" height="941" alt="A 1913 collection account card with handwritten notes on promises to pay." loading="lazy"><figcaption>Collection account card, 1913</figcaption></figure>
       <div class="folder-text">
-        <p class="before">Someone found the case, checked the tax ID by hand, and copied every detail into a template.</p>
-        <p>I built the first version with a teammate who now runs it: each payer is pre-screened with a plain reason, matched to its case without guessing, checked against the case documents, and drafted as a Doc and PDF for an attorney to review. A log makes sure nothing is drafted twice, and nothing is sent automatically.</p>
+        <p class="before">Every notice meant finding the case, checking the tax ID and copying it all into a template.</p>
+        <p>Co-built with a teammate: each payer is screened, matched to its case and drafted as a Doc and PDF for an attorney to review. Nothing sends itself.</p>
         <a href="#contact">Ask me how it works</a>
       </div>
     </div>
   </article>
 
-  <article class="folder" style="--n:3; --fb:var(--surface); --fi:var(--paper); --tb:var(--paper); --ti:var(--paper-ink)">
+  <article class="folder" style="--n:3; --fa:var(--accent); --fb:var(--surface); --fi:var(--paper); --tb:var(--paper); --ti:var(--paper-ink)">
     <div class="folder-strip"><h3 class="tab">PDF tools for the team</h3><span class="kind">In daily use</span></div>
     <div class="folder-body">
       <figure><img src="assets/mimeograph.jpg" width="1267" height="1600" alt="A 1919 advertisement for the Edison-Dick Mimeograph, a machine for duplicating letters." loading="lazy"><figcaption>Mimeograph advertisement, 1919</figcaption></figure>
       <div class="folder-text">
-        <p class="before">Court packets were assembled with a desktop app each person had to install.</p>
-        <p>Now it happens in the browser: the judgment goes into the right page of every document, blank pages are added so packets print double-sided, and large files are compressed under the court's upload limit. Nothing is kept on the server afterwards.</p>
+        <p class="before">Court packets needed a desktop app on every computer.</p>
+        <p>Now it runs in the browser: pages in the right order, ready for double-sided printing, and shrunk under the court's upload limit.</p>
         <a href="#contact">Ask me how it works</a>
       </div>
     </div>
@@ -551,7 +554,7 @@ a { color: inherit; }
 <section class="tryit" id="try" aria-labelledby="try-title">
   <div class="try-head">
     <h2 class="display" id="try-title" data-reveal>Spreadsheet in, packets out.</h2>
-    <p data-reveal style="--d:1">This is packet-builder, one of my open-source tools, running in your browser. Change the settings or clear a contact name and watch the print batch rebuild. The rules are the same ones the real tool runs.</p>
+    <p data-reveal style="--d:1">One of my open-source tools, live. Change a setting and watch the packets rebuild.</p>
   </div>
   <div class="pb" data-reveal style="--d:2">
     <div class="pb-controls" data-ui>
@@ -587,33 +590,32 @@ a { color: inherit; }
 <section class="growth" id="growth" aria-labelledby="growth-title">
   <div class="growth-intro">
     <h2 class="growth-title display" id="growth-title" data-reveal>Business systems</h2>
-    <p data-reveal style="--d:1">Since 2025 I've worked with a U.S. real estate and adjudication business, building GoHighLevel automations, CRM workflows and integrations with Python, APIs and n8n.</p>
-    <p data-reveal style="--d:2">I connect the tools a business already uses, remove unnecessary manual work, and make processes easier to manage as the business grows.</p>
-    <p class="growth-note" data-reveal style="--d:3">These are examples of the systems I can build, not a claim that every capability listed has already been deployed for a client.</p>
+    <p data-reveal style="--d:1">Since 2025: GoHighLevel, CRM and n8n automations for a U.S. real estate and adjudication business.</p>
+    <p data-reveal style="--d:2">I connect the tools you already use and cut the manual work.</p>
+    <p class="growth-note" data-reveal style="--d:3">Examples of what I can build, not a list of past client work.</p>
     <a class="btn growth-btn" href="#contact" data-reveal style="--d:4">Tell me what's slowing you down</a>
   </div>
   <div class="switcher" data-reveal style="--d:1">
     <div class="sw-list" role="tablist" aria-label="Business systems I build">
-      <button type="button" class="sw-tab" role="tab" id="sw-tab-0" aria-controls="sw-panel" aria-selected="true" data-i="0"><span class="sw-title">CRM pipelines and lead management</span><span class="sw-sum">Pipelines that follow how you actually sell.</span></button>
-      <button type="button" class="sw-tab" role="tab" id="sw-tab-1" aria-controls="sw-panel" aria-selected="false" data-i="1"><span class="sw-title">GoHighLevel workflows</span><span class="sw-sum">Follow-ups that start, and stop, at the right moment.</span></button>
-      <button type="button" class="sw-tab" role="tab" id="sw-tab-2" aria-controls="sw-panel" aria-selected="false" data-i="2"><span class="sw-title">Integrations and connected systems</span><span class="sw-sum">The tools you already use, talking to each other.</span></button>
+      <button type="button" class="sw-tab" role="tab" id="sw-tab-0" aria-controls="sw-panel" aria-selected="true" data-i="0"><span class="sw-title">CRM pipelines and lead management</span><span class="sw-sum">Pipelines that match how you sell.</span></button>
+      <button type="button" class="sw-tab" role="tab" id="sw-tab-1" aria-controls="sw-panel" aria-selected="false" data-i="1"><span class="sw-title">GoHighLevel workflows</span><span class="sw-sum">Follow-ups that start and stop on time.</span></button>
+      <button type="button" class="sw-tab" role="tab" id="sw-tab-2" aria-controls="sw-panel" aria-selected="false" data-i="2"><span class="sw-title">Integrations and connected systems</span><span class="sw-sum">Your tools, talking to each other.</span></button>
       <button type="button" class="sw-tab" role="tab" id="sw-tab-3" aria-controls="sw-panel" aria-selected="false" data-i="3"><span class="sw-title">AI agents with human oversight</span><span class="sw-sum">AI does the sorting; people make the calls.</span></button>
     </div>
     <div class="sw-panel" id="sw-panel" role="tabpanel" aria-labelledby="sw-tab-0">
-      <div class="sw-content" id="sw-content"><h3>CRM pipelines and lead management</h3><ul><li>Build pipelines around the actual sales process.</li><li>Organize leads by stage, source, owner and status.</li><li>Automate lead assignment, task creation and internal notifications.</li><li>Identify stalled opportunities and overdue follow-ups.</li><li>Track pipeline activity and conversion points.</li></ul></div>
+      <div class="sw-content" id="sw-content"><h3>CRM pipelines and lead management</h3><ul><li>Pipelines built around how you sell.</li><li>Leads sorted by stage, source and owner.</li><li>Auto-assign leads and create tasks.</li><li>Flag stalled deals and late follow-ups.</li></ul></div>
     </div>
-    <template id="sw-data-0"><h3>CRM pipelines and lead management</h3><ul><li>Build pipelines around the actual sales process.</li><li>Organize leads by stage, source, owner and status.</li><li>Automate lead assignment, task creation and internal notifications.</li><li>Identify stalled opportunities and overdue follow-ups.</li><li>Track pipeline activity and conversion points.</li></ul></template>
-    <template id="sw-data-1"><h3>GoHighLevel workflows</h3><ul><li>Automate responses to incoming inquiries.</li><li>Create appointment confirmations and reminders.</li><li>Build follow-up sequences based on customer actions.</li><li>Stop sequences when a lead replies, books or opts out.</li><li>Trigger internal alerts when a person needs to step in.</li></ul></template>
-    <template id="sw-data-2"><h3>Integrations and connected systems</h3><ul><li>Connect GoHighLevel with external applications and APIs.</li><li>Use Python to validate, transform and process data.</li><li>Orchestrate multi-step workflows in n8n.</li><li>Keep databases, forms and spreadsheets in sync.</li><li>Add error handling, retries and notifications.</li></ul></template>
-    <template id="sw-data-3"><h3>AI agents with human oversight</h3><ul><li>Categorize incoming inquiries and summarize conversations.</li><li>Extract information from documents.</li><li>Prepare draft responses for review.</li><li>Flag missing information and unusual cases.</li><li>Route sensitive or uncertain decisions to a person.</li></ul></template>
+    <template id="sw-data-0"><h3>CRM pipelines and lead management</h3><ul><li>Pipelines built around how you sell.</li><li>Leads sorted by stage, source and owner.</li><li>Auto-assign leads and create tasks.</li><li>Flag stalled deals and late follow-ups.</li></ul></template>
+    <template id="sw-data-1"><h3>GoHighLevel workflows</h3><ul><li>Instant replies to new inquiries.</li><li>Booking confirmations and reminders.</li><li>Follow-ups that stop when a lead replies.</li><li>Alerts when a person needs to step in.</li></ul></template>
+    <template id="sw-data-2"><h3>Integrations and connected systems</h3><ul><li>GoHighLevel linked to your other apps.</li><li>Python to clean and check data.</li><li>Forms, sheets and databases in sync.</li><li>Retries and alerts when something fails.</li></ul></template>
+    <template id="sw-data-3"><h3>AI agents with human oversight</h3><ul><li>Sort inquiries and summarize chats.</li><li>Pull details out of documents.</li><li>Draft replies for review.</li><li>Send tricky cases to a person.</li></ul></template>
   </div>
 </section>
 
 <section class="creative" id="creative" aria-labelledby="creative-title">
   <h2 class="display creative-title" id="creative-title" data-reveal>Creative design</h2>
   <div class="creative-intro" data-reveal style="--d:1">
-    <p>Before focusing on automation and engineering, I worked across creative design, digital content and client-facing projects. That still shapes my technical work: a system should not only function well but also make sense to the people using it.</p>
-    <p>My goal is to make ideas easier to understand, products easier to navigate, and business communication more effective. A few pieces are below.</p>
+    <p>Design came first for me. It's why my systems make sense to the people using them.</p>
   </div>
   <div class="wall" aria-label="Selected design work">
     <div class="wall-row tall">
@@ -637,13 +639,13 @@ a { color: inherit; }
   <div class="campaigns">
     <div class="campaigns-head" data-reveal>
       <h3>Concept campaigns</h3>
-      <p>Four complete campaigns for fictional brands: art direction, AI-generated imagery, copy and a landing page for each. The brands are made up; the craft is mine.</p>
+      <p>Four campaigns for made-up brands: art direction, AI imagery, copy and a landing page each.</p>
     </div>
     <article class="campaign" data-reveal style="--d:0">
       <div class="campaign-text">
         <h4>Morrow</h4>
         <p class="campaign-line">A little green time.</p>
-        <p>A matcha collection for a café, from launch post to landing page.</p>
+        <p>Matcha for a café, launch post to landing page.</p>
       </div>
       <div class="strip" aria-label="Morrow campaign images">
           <figure><img src="assets/campaigns/morrow-01-launch.jpg" width="720" height="720" alt="Iced matcha latte on a stone ledge in morning light." loading="lazy"></figure>
@@ -656,7 +658,7 @@ a { color: inherit; }
       <div class="campaign-text">
         <h4>Avelune</h4>
         <p class="campaign-line">The quiet ritual.</p>
-        <p>A skincare collection told through texture and a daily ritual.</p>
+        <p>Skincare told through texture and ritual.</p>
       </div>
       <div class="strip" aria-label="Avelune campaign images">
           <figure><img src="assets/campaigns/avelune-01-launch.jpg" width="720" height="900" alt="A white serum bottle on travertine with draped linen." loading="lazy"></figure>
@@ -669,7 +671,7 @@ a { color: inherit; }
       <div class="campaign-text">
         <h4>Serein</h4>
         <p class="campaign-line">Somewhere, slower.</p>
-        <p>A coastal retreat shown through architecture, setting and guest moments.</p>
+        <p>A coastal retreat, from setting to stay.</p>
       </div>
       <div class="strip" aria-label="Serein campaign images">
           <figure><img src="assets/campaigns/serein-01-launch.jpg" width="720" height="900" alt="An infinity pool above the sea at sunset." loading="lazy"></figure>
@@ -682,7 +684,7 @@ a { color: inherit; }
       <div class="campaign-text">
         <h4>Still House</h4>
         <p class="campaign-line">Room to live.</p>
-        <p>A furniture and home objects collection, from material to everyday use.</p>
+        <p>Furniture and home objects, made to be lived with.</p>
       </div>
       <div class="strip" aria-label="Still House campaign images">
           <figure><img src="assets/campaigns/still-house-01-launch.jpg" width="720" height="900" alt="A warm living room with a curved sofa and a sea view." loading="lazy"></figure>
@@ -695,19 +697,19 @@ a { color: inherit; }
   <div class="crafts">
     <div class="craft" data-reveal style="--d:0">
       <h3>Social media and campaign design</h3>
-      <ul><li>Social media carousels and static creatives</li><li>Branded content and campaign assets</li><li>Visual storytelling and content layouts</li></ul>
+      <ul><li>Carousels and static posts</li><li>Campaign assets</li><li>Content layouts</li></ul>
     </div>
     <div class="craft" data-reveal style="--d:1">
       <h3>Ebooks and lead magnets</h3>
-      <ul><li>Ebook design and editorial layouts</li><li>Lead-generation resources</li><li>Information hierarchy and document design</li></ul>
+      <ul><li>Ebooks and editorial layouts</li><li>Lead magnets</li><li>Clear document design</li></ul>
     </div>
     <div class="craft" data-reveal style="--d:2">
       <h3>UI/UX and digital experiences</h3>
-      <ul><li>User interface design and layouts</li><li>Dashboard and web app concepts</li><li>User flows and usability improvements</li></ul>
+      <ul><li>Interfaces and layouts</li><li>Dashboards and web apps</li><li>User flows</li></ul>
     </div>
     <div class="craft" data-reveal style="--d:3">
       <h3>Art direction and AI-assisted content</h3>
-      <ul><li>AI-generated imagery and visual concepts</li><li>Product visuals and advertising creatives</li><li>Motion design and short-form video editing</li><li>Amazon A+ content and digital product presentation</li></ul>
+      <ul><li>AI imagery and concepts</li><li>Product and ad visuals</li><li>Motion and short-form video</li><li>Amazon A+ content</li></ul>
     </div>
   </div>
 </section>
@@ -716,7 +718,7 @@ a { color: inherit; }
 <section class="stack" id="stack" aria-labelledby="stack-title">
   <div class="stack-text">
     <h2 class="stack-title" id="stack-title" data-reveal>What I build with</h2>
-    <p data-reveal style="--d:1">Code, AI, automation and design on one keyboard. Press a key.</p>
+    <p data-reveal style="--d:1">Press a key.</p>
     <div class="key-detail" aria-live="polite" data-reveal style="--d:2">
       <p class="key-name" id="key-name">Python</p>
       <p class="key-use" id="key-use">The bank statement reader, the research agent, invoice-checker and packet-builder.</p>
@@ -757,7 +759,7 @@ a { color: inherit; }
   <div class="process-pin">
   <div class="process-intro">
     <h2 class="display" id="process-title" data-reveal>How I approach problems</h2>
-    <p data-reveal style="--d:1">I don't start by asking which tool to use. I start by understanding the problem.</p>
+    <p data-reveal style="--d:1">Problem first. Tools second.</p>
     <figure class="clip" data-reveal style="--d:2"><video src="assets/teleprinter-automatic-printing.webm" poster="assets/teleprinter-automatic-printing-poster.jpg" muted loop playsinline preload="none" width="854" height="480" aria-label="A 1960s teleprinter typing a message on its own."></video><figcaption>Paperwork that types itself: a teleprinter, 1960s</figcaption></figure>
   </div>
   <div class="slip" data-reveal style="--d:2">
@@ -806,20 +808,20 @@ a { color: inherit; }
 </section>
 
 <section class="about" id="about" aria-label="About Louise Ashley Ocampo">
-  <p data-reveal>I'm Louise Ashley Ocampo, an <span class="mark m2">AI automation engineer</span> and creative problem-solver based in <span class="mark m1">Angeles City, Philippines</span>, working remotely with international teams. My background combines software development, business operations and <span class="mark m3">creative design</span>: social media creatives, ebooks, UI/UX, AI-generated imagery, motion design and client projects, plus experience in sales and customer-facing work. In 2026 I built four systems for a <span class="mark m1">U.S. collections law firm</span>, focused on document processing, workflow automation, quality checks and reliability, including testing, backups and helping teams adopt them. Since 2025 I've worked on <span class="mark m2">CRM automation</span> and business workflows for a U.S. real estate and adjudication business with GoHighLevel, Python, APIs and n8n. My toolkit includes Python, Flask, SQL, JavaScript, Docker, Linux and AI-assisted development with Claude Code. I enjoy the problems businesses accept as normal: repetitive tasks, disconnected tools, duplicated data, unclear processes and information entered or checked more than once. I bring creative thinking to the design, systems thinking to the process, and technical execution to the solution. <a class="mark m1" href="#contact">I don't just build automations. I build business solutions.</a></p>
+  <p data-reveal>I'm an <span class="mark m2">AI automation engineer</span> and <span class="mark m3">designer</span> in <span class="mark m1">Angeles City, Philippines</span>, working remotely. I built four systems for a <span class="mark m1">U.S. collections law firm</span> and run <span class="mark m2">CRM automation</span> for a U.S. real estate business. I like fixing what businesses accept as normal: repeat tasks, disconnected tools, data typed twice. <a class="mark m1" href="#contact">I don't just build automations. I build business solutions.</a></p>
 </section>
 
 <section class="contact" id="contact" aria-labelledby="contact-title">
   <div class="contact-inner">
     <h2 id="contact-title" data-reveal>Tell me about it.</h2>
-    <p class="contact-q" data-reveal>What's slowing your team down, or what idea do you want to bring to life?</p>
-    <p class="contact-sub" data-reveal>Available for remote opportunities, technical projects, automation consulting and creative collaborations.</p>
+    <p class="contact-q" data-reveal>What's slowing your team down?</p>
+    <p class="contact-sub" data-reveal>Open to remote roles, automation projects and creative work.</p>
     <form class="field" id="note-form" action="mailto:ocampolouiseashley@gmail.com" method="post" enctype="text/plain" data-reveal style="--d:1">
       <label for="note" class="sr" style="position:absolute;left:-9999px">Your note</label>
       <input id="note" name="note" type="text" placeholder="Leads from three forms into one CRM" autocomplete="off">
       <button type="submit" aria-label="Write the email">→</button>
     </form>
-    <p class="field-note" data-reveal style="--d:2">Opens your email app with your note filled in. Nothing is stored on this site.</p>
+    <p class="field-note" data-reveal style="--d:2">Opens your email app. Nothing is stored here.</p>
     <dl class="ways" data-reveal style="--d:3">
       <dt>Email</dt><dd><a href="mailto:ocampolouiseashley@gmail.com">ocampolouiseashley@gmail.com</a></dd>
       <dt>GitHub</dt><dd><a href="https://github.com/ocampolouiseashley-jpg" rel="noopener">github.com/ocampolouiseashley-jpg</a></dd>
